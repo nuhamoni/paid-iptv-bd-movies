@@ -2,12 +2,40 @@ import { MessageCircle, Send } from "lucide-react";
 
 const FloatingButtons = () => {
   return (
-    <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3">
-      {/* Telegram with label */}
-      <div className="flex items-center gap-2">
-        <div className="bg-card/90 backdrop-blur-sm border border-border/50 rounded-full px-4 py-1.5 shadow-lg">
-          <span className="text-xs font-semibold text-foreground tracking-wide whitespace-nowrap">Movie Request</span>
-        </div>
+    <>
+      {/* Movie Request label with dotted arrow */}
+      <div className="fixed bottom-44 right-24 z-50 flex flex-col items-end pointer-events-none select-none">
+        <span className="text-xl md:text-2xl font-bold text-accent tracking-wide">
+          Movie Request
+        </span>
+        {/* Dotted arrow pointing to buttons */}
+        <svg
+          width="100"
+          height="80"
+          viewBox="0 0 100 80"
+          className="mt-1"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M10 5 Q50 30 85 70"
+            stroke="hsl(var(--muted-foreground))"
+            strokeWidth="2.5"
+            strokeDasharray="6 6"
+            strokeLinecap="round"
+            fill="none"
+          />
+          {/* Arrow head */}
+          <polygon
+            points="80,60 90,75 75,72"
+            fill="hsl(var(--muted-foreground))"
+          />
+        </svg>
+      </div>
+
+      {/* Floating buttons */}
+      <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3">
+        {/* Telegram */}
         <a
           href="https://t.me/"
           target="_blank"
@@ -17,19 +45,19 @@ const FloatingButtons = () => {
         >
           <Send className="w-6 h-6 text-foreground" />
         </a>
-      </div>
 
-      {/* WhatsApp */}
-      <a
-        href="https://wa.me/?text=Movie%20Request"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="w-14 h-14 rounded-full bg-[hsl(142,70%,45%)] flex items-center justify-center shadow-lg shadow-[hsl(142,70%,30%)/0.4] hover:scale-110 hover:shadow-xl transition-all duration-300 active:scale-95"
-        title="Movie Request via WhatsApp"
-      >
-        <MessageCircle className="w-7 h-7 text-foreground" fill="currentColor" />
-      </a>
-    </div>
+        {/* WhatsApp */}
+        <a
+          href="https://wa.me/?text=Movie%20Request"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="w-14 h-14 rounded-full bg-[hsl(142,70%,45%)] flex items-center justify-center shadow-lg shadow-[hsl(142,70%,30%)/0.4] hover:scale-110 hover:shadow-xl transition-all duration-300 active:scale-95"
+          title="Movie Request via WhatsApp"
+        >
+          <MessageCircle className="w-7 h-7 text-foreground" fill="currentColor" />
+        </a>
+      </div>
+    </>
   );
 };
 
