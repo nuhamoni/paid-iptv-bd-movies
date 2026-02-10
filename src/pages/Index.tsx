@@ -3,6 +3,7 @@ import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import MovieGrid from "@/components/MovieGrid";
 import Footer from "@/components/Footer";
+import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import { fetchMoviesFromM3U, genres, type Movie } from "@/data/movies";
 
 const Index = () => {
@@ -51,6 +52,7 @@ const Index = () => {
       )}
 
       <Footer />
+      <FloatingWhatsApp />
     </div>
   );
 };
