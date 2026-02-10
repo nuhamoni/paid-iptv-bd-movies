@@ -17,12 +17,12 @@ const Navbar = ({ searchQuery, onSearchChange }: NavbarProps) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <div className="flex items-center gap-2">
+          <Link to="/" className="flex items-center gap-2">
             <img src={logo} alt="PAID IPTV BD" className="w-9 h-9 rounded-md" />
             <span className="font-display text-2xl tracking-wider text-foreground">
               PAID IPTV <span className="text-primary">BD</span>
             </span>
-          </div>
+          </Link>
 
           {/* Desktop Nav */}
           <div className="hidden md:flex items-center gap-8">
