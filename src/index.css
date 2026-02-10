@@ -101,4 +101,33 @@
   .animate-shrink {
     animation: shrink 5s linear forwards;
   }
+
+  @keyframes marquee-left {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  @keyframes marquee-right {
+    0% { transform: translateX(-50%); }
+    100% { transform: translateX(0); }
+  }
+  @keyframes marquee-up {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-50%); }
+  }
+  @keyframes marquee-down {
+    0% { transform: translateY(-50%); }
+    100% { transform: translateY(0); }
+  }
+  .marquee-left {
+    animation: marquee-left 12s linear infinite;
+  }
+  .marquee-right {
+    animation: marquee-right 12s linear infinite;
+  }
+  .marquee-up {
+    animation: marquee-up 8s linear infinite;
+  }
+  .marquee-down {
+    animation: marquee-down 8s linear infinite;
+  }
 }

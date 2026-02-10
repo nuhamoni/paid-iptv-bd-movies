@@ -63,25 +63,25 @@ const MovieGrid = ({ title, movies, genres, activeGenre, onGenreChange }: MovieG
         <div className="absolute inset-0 rounded-xl overflow-hidden pointer-events-none">
           {/* Top border marquee */}
           <div className="absolute top-0 left-0 right-0 h-[14px] overflow-hidden flex items-center">
-            <div className="whitespace-nowrap animate-[marquee-left_12s_linear_infinite] text-[10px] font-extrabold tracking-[4px] text-accent">
+            <div className="whitespace-nowrap marquee-left text-[10px] font-extrabold tracking-[4px] text-accent">
               PAID IPTV BD - 01767046095 • PAID IPTV BD - 01767046095 • PAID IPTV BD - 01767046095 • PAID IPTV BD - 01767046095 • PAID IPTV BD - 01767046095 • PAID IPTV BD - 01767046095 •&nbsp;
             </div>
           </div>
           {/* Bottom border marquee */}
           <div className="absolute bottom-0 left-0 right-0 h-[14px] overflow-hidden flex items-center">
-            <div className="whitespace-nowrap animate-[marquee-right_12s_linear_infinite] text-[10px] font-extrabold tracking-[4px] text-primary">
+            <div className="whitespace-nowrap marquee-right text-[10px] font-extrabold tracking-[4px] text-primary">
               PAID IPTV BD - 01767046095 • PAID IPTV BD - 01767046095 • PAID IPTV BD - 01767046095 • PAID IPTV BD - 01767046095 • PAID IPTV BD - 01767046095 • PAID IPTV BD - 01767046095 •&nbsp;
             </div>
           </div>
           {/* Left border marquee */}
           <div className="absolute top-0 left-0 bottom-0 w-[14px] overflow-hidden flex items-center justify-center">
-            <div className="animate-[marquee-down_8s_linear_infinite] text-[10px] font-extrabold tracking-[4px] text-accent" style={{ writingMode: 'vertical-rl' }}>
+            <div className="marquee-down text-[10px] font-extrabold tracking-[4px] text-accent" style={{ writingMode: 'vertical-rl' }}>
               PAID IPTV BD - 01767046095 • PAID IPTV BD - 01767046095 • PAID IPTV BD - 01767046095 •&nbsp;
             </div>
           </div>
           {/* Right border marquee */}
           <div className="absolute top-0 right-0 bottom-0 w-[14px] overflow-hidden flex items-center justify-center">
-            <div className="animate-[marquee-up_8s_linear_infinite] text-[10px] font-extrabold tracking-[4px] text-primary" style={{ writingMode: 'vertical-rl' }}>
+            <div className="marquee-up text-[10px] font-extrabold tracking-[4px] text-primary" style={{ writingMode: 'vertical-rl' }}>
               PAID IPTV BD - 01767046095 • PAID IPTV BD - 01767046095 • PAID IPTV BD - 01767046095 •&nbsp;
             </div>
           </div>
