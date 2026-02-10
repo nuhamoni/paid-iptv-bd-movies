@@ -1,4 +1,5 @@
 import { Star, Play, Clock, Download } from "lucide-react";
+import { Link } from "react-router-dom";
 import type { Movie } from "@/data/movies";
 
 interface MovieCardProps {
@@ -8,8 +9,9 @@ interface MovieCardProps {
 
 const MovieCard = ({ movie, index }: MovieCardProps) => {
   return (
-    <div
-      className="group relative rounded-lg overflow-hidden bg-card card-glow transition-all duration-500 hover:scale-[1.03] hover:-translate-y-1 cursor-pointer"
+    <Link
+      to={`/movie/${movie.id}`}
+      className="group relative rounded-lg overflow-hidden bg-card card-glow transition-all duration-500 hover:scale-[1.03] hover:-translate-y-1 cursor-pointer block"
       style={{ 
         animationDelay: `${index * 80}ms`,
         boxShadow: 'var(--shadow-card)'
@@ -80,7 +82,7 @@ const MovieCard = ({ movie, index }: MovieCardProps) => {
           </a>
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 
