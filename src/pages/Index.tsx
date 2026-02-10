@@ -1,9 +1,10 @@
-import { useState, useMemo, useEffect } from "react";
+import { useState, useMemo, useEffect, useCallback } from "react";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import MovieGrid from "@/components/MovieGrid";
 import Footer from "@/components/Footer";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
+import DisclaimerPopup from "@/components/DisclaimerPopup";
 import { fetchMoviesFromM3U, genres, type Movie } from "@/data/movies";
 
 const Index = () => {
@@ -11,6 +12,8 @@ const Index = () => {
   const [activeGenre, setActiveGenre] = useState("All");
   const [movies, setMovies] = useState<Movie[]>([]);
   const [loading, setLoading] = useState(true);
+  const [showDisclaimer, setShowDisclaimer] = useState(true);
+  const handleDisclaimerClose = useCallback(() => setShowDisclaimer(false), []);
 
   useEffect(() => {
     fetchMoviesFromM3U().then((data) => {
@@ -31,6 +34,7 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      {showDisclaimer && <DisclaimerPopup onClose={handleDisclaimerClose} />}
       <Navbar searchQuery={searchQuery} onSearchChange={setSearchQuery} />
       <HeroSection featuredMovie={featuredMovie} movies={movies.slice(0, 20)} />
 
