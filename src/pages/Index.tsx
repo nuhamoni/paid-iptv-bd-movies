@@ -1,12 +1,34 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { useState, useMemo } from "react";
+import Navbar from "@/components/Navbar";
+import HeroSection from "@/components/HeroSection";
+import MovieGrid from "@/components/MovieGrid";
+import Footer from "@/components/Footer";
+import { sampleMovies, genres } from "@/data/movies";
 
 const Index = () => {
+  const [searchQuery, setSearchQuery] = useState("");
+  const [activeGenre, setActiveGenre] = useState("All");
+
+  const filteredMovies = useMemo(() => {
+    return sampleMovies.filter((movie) => {
+      const matchesSearch = movie.title.toLowerCase().includes(searchQuery.toLowerCase());
+      const matchesGenre = activeGenre === "All" || movie.genre.includes(activeGenre);
+      return matchesSearch && matchesGenre;
+    });
+  }, [searchQuery, activeGenre]);
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
+    <div className="min-h-screen bg-background">
+      <Navbar searchQuery={searchQuery} onSearchChange={setSearchQuery} />
+      <HeroSection />
+      <MovieGrid
+        title="TRENDING NOW"
+        movies={filteredMovies}
+        genres={genres}
+        activeGenre={activeGenre}
+        onGenreChange={setActiveGenre}
+      />
+      <Footer />
     </div>
   );
 };
