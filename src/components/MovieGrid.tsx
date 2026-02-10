@@ -80,8 +80,8 @@ const MovieGrid = ({ title, movies, genres, activeGenre, onGenreChange }: MovieG
             </div>
           </div>
           {/* Right border marquee */}
-          <div className="absolute top-0 right-0 bottom-0 w-[14px] overflow-hidden flex items-center justify-center">
-            <div className="marquee-up text-[10px] font-extrabold tracking-[4px] text-primary" style={{ writingMode: 'vertical-rl' }}>
+          <div className="absolute top-0 bottom-0 w-[14px] overflow-hidden flex items-center justify-center" style={{ right: 0 }}>
+            <div className="marquee-up text-[10px] font-extrabold tracking-[4px] text-primary" style={{ writingMode: 'vertical-rl', whiteSpace: 'nowrap' }}>
               PAID IPTV BD - 01767046095 • PAID IPTV BD - 01767046095 • PAID IPTV BD - 01767046095 •&nbsp;
             </div>
           </div>
