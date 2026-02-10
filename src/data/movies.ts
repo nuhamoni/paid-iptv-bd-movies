@@ -19,7 +19,10 @@ export const genres = [
   "Sci-Fi", "Romance", "Adventure", "Animation", "Crime"
 ];
 
-const M3U_URL = "https://raw.githubusercontent.com/MRM3UK/Drama-Movies-Playlist---circleftp/refs/heads/main/MixFTP.m3u";
+const M3U_URLS = [
+  "https://raw.githubusercontent.com/MRM3UK/Drama-Movies-Playlist---circleftp/refs/heads/main/MixFTP.m3u",
+  "https://raw.githubusercontent.com/gipuges285-cmd/own-movies/refs/heads/main/paidiptvbd-movies.m3u",
+];
 
 function extractYearFromGroup(group: string): number {
   const match = group.match(/(\d{4})/);
@@ -104,10 +107,27 @@ export function parseM3U(content: string): Movie[] {
 
 export async function fetchMoviesFromM3U(): Promise<Movie[]> {
   try {
-    const response = await fetch(M3U_URL);
-    if (!response.ok) throw new Error("Failed to fetch M3U");
-    const text = await response.text();
-    return parseM3U(text);
+    const results = await Promise.all(
+      M3U_URLS.map(async (url) => {
+        try {
+          const response = await fetch(url);
+          if (!response.ok) return [];
+          const text = await response.text();
+          return parseM3U(text);
+        } catch {
+          return [];
+        }
+      })
+    );
+    // Combine all and deduplicate by title
+    const all = results.flat();
+    const seen = new Set<string>();
+    return all.filter((m) => {
+      const key = m.title.toLowerCase();
+      if (seen.has(key)) return false;
+      seen.add(key);
+      return true;
+    });
   } catch (error) {
     console.error("Error fetching M3U:", error);
     return [];
