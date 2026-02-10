@@ -35,25 +35,32 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       {showDisclaimer && <DisclaimerPopup onClose={handleDisclaimerClose} />}
-      <Navbar searchQuery={searchQuery} onSearchChange={setSearchQuery} />
-      <HeroSection featuredMovie={featuredMovie} movies={movies.slice(0, 20)} />
+      <header>
+        <Navbar searchQuery={searchQuery} onSearchChange={setSearchQuery} />
+      </header>
+      <main>
+        <h1 className="sr-only">PAID IPTV BD MOVIES - Download Free HD Movies, Web Series & TV Shows</h1>
+        <HeroSection featuredMovie={featuredMovie} movies={movies.slice(0, 20)} />
 
-      {loading ? (
-        <div className="flex items-center justify-center py-20">
-          <div className="flex flex-col items-center gap-4">
-            <div className="w-10 h-10 border-4 border-primary border-t-transparent rounded-full animate-spin" />
-            <p className="text-muted-foreground text-sm">Loading movies...</p>
+        {loading ? (
+          <div className="flex items-center justify-center py-20">
+            <div className="flex flex-col items-center gap-4">
+              <div className="w-10 h-10 border-4 border-primary border-t-transparent rounded-full animate-spin" />
+              <p className="text-muted-foreground text-sm">Loading movies...</p>
+            </div>
           </div>
-        </div>
-      ) : (
-        <MovieGrid
-          title="ALL MOVIES"
-          movies={filteredMovies}
-          genres={genres}
-          activeGenre={activeGenre}
-          onGenreChange={setActiveGenre}
-        />
-      )}
+        ) : (
+          <section id="movies" aria-label="All Movies">
+            <MovieGrid
+              title="ALL MOVIES"
+              movies={filteredMovies}
+              genres={genres}
+              activeGenre={activeGenre}
+              onGenreChange={setActiveGenre}
+            />
+          </section>
+        )}
+      </main>
 
       <Footer />
       <FloatingWhatsApp />
