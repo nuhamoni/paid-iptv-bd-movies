@@ -33,10 +33,20 @@ const MovieCard = ({ movie, index }: MovieCardProps) => {
         
         {/* Play Button with spinning circle */}
         <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300">
-          <div className="relative w-16 h-16 flex items-center justify-center">
-            {/* Spinning circle border */}
-            <div className="absolute inset-0 rounded-full border-[3px] border-transparent border-t-primary border-r-primary/50 animate-spin" />
-            <div className="absolute inset-1 rounded-full border-[2px] border-transparent border-b-accent border-l-accent/50 animate-[spin_1.5s_linear_infinite_reverse]" />
+          <div className="relative w-20 h-20 flex items-center justify-center">
+            {/* Spinning text circle - PAID IPTV BD */}
+            <svg className="absolute inset-0 w-full h-full animate-[spin_6s_linear_infinite]" viewBox="0 0 100 100">
+              <defs>
+                <path id={`textCircle-${index}`} d="M 50,50 m -37,0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0" fill="none" />
+              </defs>
+              <text className="fill-white text-[11px] font-bold tracking-[4px]" style={{ fontFamily: 'Inter, sans-serif' }}>
+                <textPath href={`#textCircle-${index}`} startOffset="0%">
+                  PAID IPTV BD • PAID IPTV BD •
+                </textPath>
+              </text>
+            </svg>
+            {/* Inner spinning border */}
+            <div className="absolute inset-3 rounded-full border-[2px] border-transparent border-b-accent border-l-accent/50 animate-[spin_1.5s_linear_infinite_reverse]" />
             {/* Play icon */}
             <div className="w-10 h-10 rounded-full bg-primary/90 flex items-center justify-center backdrop-blur-sm shadow-[0_0_25px_hsl(0_85%_55%/0.6)]">
               <Play className="w-5 h-5 text-primary-foreground ml-0.5" fill="currentColor" />
