@@ -11,7 +11,7 @@ const MovieCard = ({ movie, index }: MovieCardProps) => {
   return (
     <Link
       to={`/movie/${movie.id}`}
-      className="group relative rounded-lg overflow-hidden bg-card card-glow transition-all duration-500 hover:scale-[1.03] hover:-translate-y-1 cursor-pointer block"
+      className="group relative rounded-lg overflow-hidden bg-card card-glow transition-all duration-500 hover:scale-[1.05] hover:-translate-y-2 cursor-pointer block animate-fade-in"
       style={{ 
         animationDelay: `${index * 80}ms`,
         boxShadow: 'var(--shadow-card)'
@@ -25,26 +25,32 @@ const MovieCard = ({ movie, index }: MovieCardProps) => {
           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
           loading="lazy"
         />
+        {/* Shimmer effect on hover */}
+        <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/10 to-transparent pointer-events-none" />
+
         {/* Overlay */}
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
         
-        {/* Play Button */}
+        {/* Play Button - pulsing glow */}
         <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300">
-          <div className="w-14 h-14 rounded-full bg-primary/90 flex items-center justify-center backdrop-blur-sm transform scale-75 group-hover:scale-100 transition-transform duration-300">
-            <Play className="w-6 h-6 text-primary-foreground ml-1" fill="currentColor" />
+          <div className="w-16 h-16 rounded-full bg-primary/90 flex items-center justify-center backdrop-blur-sm transform scale-50 group-hover:scale-100 transition-transform duration-500 shadow-[0_0_25px_hsl(0_85%_55%/0.6)]">
+            <Play className="w-7 h-7 text-primary-foreground ml-1" fill="currentColor" />
           </div>
         </div>
 
+        {/* Animated border glow on hover */}
+        <div className="absolute inset-0 rounded-lg border-2 border-transparent group-hover:border-primary/40 transition-all duration-500 pointer-events-none" />
+
         {/* Type Badge */}
         <div className="absolute top-2 left-2">
-          <span className="px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider bg-primary/90 text-primary-foreground rounded">
+          <span className="px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider bg-primary/90 text-primary-foreground rounded shadow-[0_0_10px_hsl(0_85%_55%/0.3)]">
             {movie.type === 'series' ? 'Series' : 'Movie'}
           </span>
         </div>
 
-        {/* Rating */}
-        <div className="absolute top-2 right-2 flex items-center gap-1 bg-background/80 backdrop-blur-sm rounded px-1.5 py-0.5">
-          <Star className="w-3 h-3 text-accent" fill="currentColor" />
+        {/* Rating with glow */}
+        <div className="absolute top-2 right-2 flex items-center gap-1 bg-background/80 backdrop-blur-sm rounded px-1.5 py-0.5 shadow-[0_0_8px_hsl(40_90%_55%/0.3)]">
+          <Star className="w-3 h-3 text-accent animate-pulse" fill="currentColor" />
           <span className="text-xs font-semibold text-foreground">{movie.rating}</span>
         </div>
       </div>
