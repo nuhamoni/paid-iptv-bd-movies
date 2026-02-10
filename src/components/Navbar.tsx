@@ -1,4 +1,4 @@
-import { Search, Film, Menu, X, MessageCircle, Send } from "lucide-react";
+import { Search, Film, Menu, X } from "lucide-react";
 import { useState } from "react";
 
 interface NavbarProps {
@@ -28,24 +28,6 @@ const Navbar = ({ searchQuery, onSearchChange }: NavbarProps) => {
             <a href="#movies" className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">Movies</a>
             <a href="#series" className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">Series</a>
             <a href="#genres" className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">Genres</a>
-            <a
-              href="https://wa.me/?text=Movie%20Request"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-full bg-[hsl(142,70%,35%)] text-foreground hover:opacity-80 transition-opacity"
-            >
-              <MessageCircle className="w-3.5 h-3.5" />
-              Movie Request
-            </a>
-            <a
-              href="https://t.me/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-full bg-[hsl(210,80%,55%)] text-foreground hover:opacity-80 transition-opacity"
-            >
-              <Send className="w-3.5 h-3.5" />
-              Movie Request
-            </a>
           </div>
 
           {/* Search & Mobile Toggle */}
@@ -82,14 +64,6 @@ const Navbar = ({ searchQuery, onSearchChange }: NavbarProps) => {
               <a href="#movies" className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">Movies</a>
               <a href="#series" className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">Series</a>
               <a href="#genres" className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">Genres</a>
-              <div className="flex gap-2 mt-2">
-                <a href="https://wa.me/?text=Movie%20Request" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 px-3 py-2 text-xs font-semibold rounded-full bg-[hsl(142,70%,35%)] text-foreground hover:opacity-80 transition-opacity">
-                  <MessageCircle className="w-3.5 h-3.5" /> WhatsApp
-                </a>
-                <a href="https://t.me/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 px-3 py-2 text-xs font-semibold rounded-full bg-[hsl(210,80%,55%)] text-foreground hover:opacity-80 transition-opacity">
-                  <Send className="w-3.5 h-3.5" /> Telegram
-                </a>
-              </div>
               <input
                 type="text"
                 placeholder="Search movies..."
