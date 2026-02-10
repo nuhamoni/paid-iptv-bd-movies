@@ -59,30 +59,30 @@ const MovieGrid = ({ title, movies, genres, activeGenre, onGenreChange }: MovieG
         className="group relative block w-full mb-8 rounded-xl bg-gradient-to-r from-primary/20 via-accent/10 to-primary/20 hover:from-primary/30 hover:via-accent/20 hover:to-primary/30 transition-all duration-500"
         style={{ padding: '14px' }}
       >
-        {/* Marquee border - rotating text around the border */}
+        {/* Marquee border - single text scrolling around */}
         <div className="absolute inset-0 rounded-xl overflow-hidden pointer-events-none">
-          {/* Top border marquee */}
+          {/* Top */}
           <div className="absolute top-0 left-0 right-0 h-[14px] overflow-hidden flex items-center">
             <div className="whitespace-nowrap marquee-left text-[10px] font-extrabold tracking-[4px] text-accent">
-              PAID IPTV BD - 01767046095 •&nbsp;PAID IPTV BD - 01767046095 •&nbsp;
+              PAID IPTV BD - 01767046095
             </div>
           </div>
-          {/* Bottom border marquee */}
+          {/* Bottom */}
           <div className="absolute bottom-0 left-0 right-0 h-[14px] overflow-hidden flex items-center">
             <div className="whitespace-nowrap marquee-right text-[10px] font-extrabold tracking-[4px] text-primary">
-              PAID IPTV BD - 01767046095 •&nbsp;PAID IPTV BD - 01767046095 •&nbsp;
+              PAID IPTV BD - 01767046095
             </div>
           </div>
-          {/* Left border marquee */}
+          {/* Left */}
           <div className="absolute top-0 left-0 bottom-0 w-[14px] overflow-hidden flex items-center justify-center">
             <div className="marquee-down text-[10px] font-extrabold tracking-[4px] text-accent" style={{ writingMode: 'vertical-rl', whiteSpace: 'nowrap' }}>
-              PAID IPTV BD - 01767046095 •&nbsp;PAID IPTV BD - 01767046095 •&nbsp;
+              PAID IPTV BD
             </div>
           </div>
-          {/* Right border marquee */}
+          {/* Right */}
           <div className="absolute top-0 bottom-0 w-[14px] overflow-hidden flex items-center justify-center" style={{ right: 0 }}>
             <div className="marquee-up text-[10px] font-extrabold tracking-[4px] text-primary" style={{ writingMode: 'vertical-rl', whiteSpace: 'nowrap' }}>
-              PAID IPTV BD - 01767046095 •&nbsp;PAID IPTV BD - 01767046095 •&nbsp;
+              01767046095
             </div>
           </div>
         </div>
