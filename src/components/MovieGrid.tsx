@@ -56,39 +56,26 @@ const MovieGrid = ({ title, movies, genres, activeGenre, onGenreChange }: MovieG
         href="https://wa.me/8801767046095"
         target="_blank"
         rel="noopener noreferrer"
-        className="group relative block w-full mb-8 rounded-xl bg-gradient-to-r from-primary/20 via-accent/10 to-primary/20 hover:from-primary/30 hover:via-accent/20 hover:to-primary/30 transition-all duration-500"
-        style={{ padding: '14px' }}
+        className="group relative block w-full mb-8 rounded-xl transition-all duration-500"
       >
-        {/* Marquee border - single text scrolling around */}
-        <div className="absolute inset-0 rounded-xl overflow-hidden pointer-events-none">
-          {/* Top */}
-          <div className="absolute top-0 left-0 right-0 h-[14px] overflow-hidden flex items-center">
-            <div className="whitespace-nowrap marquee-left text-[10px] font-extrabold tracking-[4px] text-accent">
+        {/* SVG border with orbiting text */}
+        <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 1000 80" preserveAspectRatio="none">
+          <defs>
+            <path id="borderPath" d="M 10,2 H 990 Q 998,2 998,10 V 70 Q 998,78 990,78 H 10 Q 2,78 2,70 V 10 Q 2,2 10,2 Z" fill="none" />
+          </defs>
+          {/* Border outline */}
+          <use href="#borderPath" stroke="hsl(var(--primary))" strokeWidth="1" strokeOpacity="0.3" />
+          {/* Orbiting text */}
+          <text className="text-[12px] font-bold" fill="hsl(var(--accent))" letterSpacing="3">
+            <textPath href="#borderPath" startOffset="0%">
+              <animate attributeName="startOffset" from="0%" to="100%" dur="15s" repeatCount="indefinite" />
               PAID IPTV BD - 01767046095
-            </div>
-          </div>
-          {/* Bottom */}
-          <div className="absolute bottom-0 left-0 right-0 h-[14px] overflow-hidden flex items-center">
-            <div className="whitespace-nowrap marquee-right text-[10px] font-extrabold tracking-[4px] text-primary">
-              PAID IPTV BD - 01767046095
-            </div>
-          </div>
-          {/* Left */}
-          <div className="absolute top-0 left-0 bottom-0 w-[14px] overflow-hidden flex items-center justify-center">
-            <div className="marquee-down text-[10px] font-extrabold tracking-[4px] text-accent" style={{ writingMode: 'vertical-rl', whiteSpace: 'nowrap' }}>
-              PAID IPTV BD
-            </div>
-          </div>
-          {/* Right */}
-          <div className="absolute top-0 bottom-0 w-[14px] overflow-hidden flex items-center justify-center" style={{ right: 0 }}>
-            <div className="marquee-up text-[10px] font-extrabold tracking-[4px] text-primary" style={{ writingMode: 'vertical-rl', whiteSpace: 'nowrap' }}>
-              01767046095
-            </div>
-          </div>
-        </div>
+            </textPath>
+          </text>
+        </svg>
 
         {/* Inner content */}
-        <div className="relative rounded-lg bg-background/95 py-4 px-6 flex items-center justify-center gap-3">
+        <div className="relative rounded-xl bg-gradient-to-r from-primary/10 via-background to-primary/10 py-4 px-6 flex items-center justify-center gap-3 border border-primary/20">
           <Crown className="w-6 h-6 text-accent animate-pulse shrink-0" />
           <span className="font-display text-lg sm:text-2xl md:text-3xl tracking-wider text-foreground text-center">
             <span className="text-accent font-bold">BEST IPTV</span>
