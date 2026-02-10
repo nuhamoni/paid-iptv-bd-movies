@@ -64,25 +64,25 @@ const MovieGrid = ({ title, movies, genres, activeGenre, onGenreChange }: MovieG
           {/* Top border marquee */}
           <div className="absolute top-0 left-0 right-0 h-[14px] overflow-hidden flex items-center">
             <div className="whitespace-nowrap marquee-left text-[10px] font-extrabold tracking-[4px] text-accent">
-              PAID IPTV BD - 01767046095 • PAID IPTV BD - 01767046095 • PAID IPTV BD - 01767046095 • PAID IPTV BD - 01767046095 • PAID IPTV BD - 01767046095 • PAID IPTV BD - 01767046095 •&nbsp;
+              PAID IPTV BD - 01767046095 •&nbsp;PAID IPTV BD - 01767046095 •&nbsp;
             </div>
           </div>
           {/* Bottom border marquee */}
           <div className="absolute bottom-0 left-0 right-0 h-[14px] overflow-hidden flex items-center">
             <div className="whitespace-nowrap marquee-right text-[10px] font-extrabold tracking-[4px] text-primary">
-              PAID IPTV BD - 01767046095 • PAID IPTV BD - 01767046095 • PAID IPTV BD - 01767046095 • PAID IPTV BD - 01767046095 • PAID IPTV BD - 01767046095 • PAID IPTV BD - 01767046095 •&nbsp;
+              PAID IPTV BD - 01767046095 •&nbsp;PAID IPTV BD - 01767046095 •&nbsp;
             </div>
           </div>
           {/* Left border marquee */}
           <div className="absolute top-0 left-0 bottom-0 w-[14px] overflow-hidden flex items-center justify-center">
-            <div className="marquee-down text-[10px] font-extrabold tracking-[4px] text-accent" style={{ writingMode: 'vertical-rl' }}>
-              PAID IPTV BD - 01767046095 • PAID IPTV BD - 01767046095 • PAID IPTV BD - 01767046095 •&nbsp;
+            <div className="marquee-down text-[10px] font-extrabold tracking-[4px] text-accent" style={{ writingMode: 'vertical-rl', whiteSpace: 'nowrap' }}>
+              PAID IPTV BD - 01767046095 •&nbsp;PAID IPTV BD - 01767046095 •&nbsp;
             </div>
           </div>
           {/* Right border marquee */}
           <div className="absolute top-0 bottom-0 w-[14px] overflow-hidden flex items-center justify-center" style={{ right: 0 }}>
             <div className="marquee-up text-[10px] font-extrabold tracking-[4px] text-primary" style={{ writingMode: 'vertical-rl', whiteSpace: 'nowrap' }}>
-              PAID IPTV BD - 01767046095 • PAID IPTV BD - 01767046095 • PAID IPTV BD - 01767046095 •&nbsp;
+              PAID IPTV BD - 01767046095 •&nbsp;PAID IPTV BD - 01767046095 •&nbsp;
             </div>
           </div>
         </div>
