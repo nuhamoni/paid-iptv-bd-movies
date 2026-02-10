@@ -30,7 +30,7 @@ const HeroSection = ({ featuredMovie, movies = [] }: HeroSectionProps) => {
   };
 
   return (
-    <section className="relative min-h-[600px] h-[85vh] flex overflow-hidden">
+    <section className="relative min-h-[500px] h-[75vh] flex overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0">
         <img
@@ -61,7 +61,7 @@ const HeroSection = ({ featuredMovie, movies = [] }: HeroSectionProps) => {
       )}
 
       {/* Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex flex-col lg:flex-row items-end lg:items-end gap-8 pb-12 pt-24">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex flex-col lg:flex-row items-end lg:items-end gap-8 pb-4 pt-24">
         {/* Left: Featured Info */}
         <div className="flex-1 animate-fade-in">
           <div className="flex items-center gap-3 mb-3">
