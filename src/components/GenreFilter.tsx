@@ -11,10 +11,10 @@ const GenreFilter = ({ genres, activeGenre, onGenreChange }: GenreFilterProps) =
         <button
           key={genre}
           onClick={() => onGenreChange(genre)}
-          className={`px-4 py-2 text-sm font-medium rounded-full whitespace-nowrap transition-all duration-300 ${
+          className={`px-5 py-2.5 text-sm font-medium rounded-full whitespace-nowrap transition-all duration-300 transform ${
             activeGenre === genre
-              ? "bg-primary text-primary-foreground shadow-lg shadow-primary/25"
-              : "bg-secondary text-secondary-foreground hover:bg-secondary/80 border border-border"
+              ? "bg-primary text-primary-foreground shadow-lg shadow-primary/25 scale-105"
+              : "bg-secondary text-secondary-foreground border border-border hover:bg-primary/20 hover:text-primary hover:border-primary/50 hover:scale-105 hover:shadow-md hover:shadow-primary/10"
           }`}
         >
           {genre}
