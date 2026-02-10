@@ -12,8 +12,13 @@ const Index = () => {
   const [activeGenre, setActiveGenre] = useState("All");
   const [movies, setMovies] = useState<Movie[]>([]);
   const [loading, setLoading] = useState(true);
-  const [showDisclaimer, setShowDisclaimer] = useState(true);
-  const handleDisclaimerClose = useCallback(() => setShowDisclaimer(false), []);
+  const [showDisclaimer, setShowDisclaimer] = useState(() => {
+    return !localStorage.getItem("disclaimer_seen");
+  });
+  const handleDisclaimerClose = useCallback(() => {
+    setShowDisclaimer(false);
+    localStorage.setItem("disclaimer_seen", "true");
+  }, []);
 
   useEffect(() => {
     fetchMoviesFromM3U().then((data) => {
