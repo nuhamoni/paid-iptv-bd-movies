@@ -11,7 +11,7 @@ const DisclaimerPopup = ({ onClose }: { onClose: () => void }) => {
         setVisible(false);
         onClose();
       }, 500);
-    }, 5000);
+    }, 3000);
     return () => clearTimeout(timer);
   }, [onClose]);
 
