@@ -21,6 +21,10 @@ const Index = () => {
   }, []);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  useEffect(() => {
     fetchMoviesFromM3U().then((data) => {
       setMovies(data);
       setLoading(false);
