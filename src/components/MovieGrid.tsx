@@ -96,7 +96,7 @@ const MovieGrid = ({ title, movies, genres, activeGenre, onGenreChange }: MovieG
               style={{ filter: 'drop-shadow(0 0 6px hsl(40 90% 55% / 0.6))' }}
             >
               <textPath href="#orbitPath">
-                <animate attributeName="startOffset" from="0%" to="100%" dur="12s" repeatCount="indefinite" />
+                <animate attributeName="startOffset" from="100%" to="0%" dur="25s" repeatCount="indefinite" />
                 {orbitText}
               </textPath>
             </text>
