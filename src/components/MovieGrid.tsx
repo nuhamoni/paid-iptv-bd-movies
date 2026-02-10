@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, Crown, MessageCircle } from "lucide-react";
 import MovieCard from "./MovieCard";
 import GenreFilter from "./GenreFilter";
 import type { Movie } from "@/data/movies";
@@ -50,6 +50,30 @@ const MovieGrid = ({ title, movies, genres, activeGenre, onGenreChange }: MovieG
 
   return (
     <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12" id="movies">
+
+      {/* BEST IPTV Banner */}
+      <a
+        href="https://wa.me/8801767046095"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="group relative block w-full mb-8 overflow-hidden rounded-xl border border-accent/30 bg-gradient-to-r from-primary/20 via-accent/10 to-primary/20 hover:from-primary/30 hover:via-accent/20 hover:to-primary/30 transition-all duration-500"
+      >
+        {/* Animated glow background */}
+        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-accent/5 to-transparent animate-[shimmer_3s_ease-in-out_infinite]" />
+        
+        <div className="relative flex items-center justify-center gap-3 py-4 px-6">
+          <Crown className="w-6 h-6 text-accent animate-pulse shrink-0" />
+          <span className="font-display text-lg sm:text-2xl md:text-3xl tracking-wider text-foreground text-center">
+            <span className="text-accent font-bold">BEST IPTV</span>
+            <span className="mx-2 text-muted-foreground">IN</span>
+            <span className="text-primary font-bold">BANGLADESH</span>
+          </span>
+          <MessageCircle className="w-6 h-6 text-accent group-hover:scale-125 transition-transform duration-300 shrink-0" />
+        </div>
+
+        {/* Bottom accent line with animation */}
+        <div className="h-0.5 w-full bg-gradient-to-r from-transparent via-accent to-transparent opacity-50 group-hover:opacity-100 transition-opacity duration-500" />
+      </a>
 
       <GenreFilter
         genres={genres}
