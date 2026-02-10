@@ -1,4 +1,4 @@
-import { Star, Play, Clock } from "lucide-react";
+import { Star, Play, Clock, Download } from "lucide-react";
 import type { Movie } from "@/data/movies";
 
 interface MovieCardProps {
@@ -60,12 +60,24 @@ const MovieCard = ({ movie, index }: MovieCardProps) => {
             <span className="text-xs">{movie.duration}</span>
           </div>
         </div>
-        <div className="flex gap-1.5 mt-2 flex-wrap">
-          {movie.genre.slice(0, 2).map((g) => (
-            <span key={g} className="px-2 py-0.5 text-[10px] font-medium bg-secondary text-secondary-foreground rounded-full">
-              {g}
-            </span>
-          ))}
+        <div className="flex items-center justify-between mt-2">
+          <div className="flex gap-1.5 flex-wrap">
+            {movie.genre.slice(0, 2).map((g) => (
+              <span key={g} className="px-2 py-0.5 text-[10px] font-medium bg-secondary text-secondary-foreground rounded-full">
+                {g}
+              </span>
+            ))}
+          </div>
+          <a
+            href={movie.downloadLink || "#"}
+            onClick={(e) => e.stopPropagation()}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center justify-center w-8 h-8 rounded-full bg-primary/20 text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300 shrink-0"
+            title="Download"
+          >
+            <Download className="w-3.5 h-3.5" />
+          </a>
         </div>
       </div>
     </div>

@@ -7,6 +7,7 @@ export interface Movie {
   poster: string;
   backdrop?: string;
   description: string;
+  downloadLink?: string;
   duration: string;
   language: string;
   type: 'movie' | 'series';
