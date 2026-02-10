@@ -99,7 +99,7 @@
     to { width: 0%; }
   }
   .animate-shrink {
-    animation: shrink 5s linear forwards;
+    animation: shrink 3s linear forwards;
   }
 
   @keyframes marquee-left {
