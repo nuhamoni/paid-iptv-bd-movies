@@ -130,4 +130,19 @@
   .marquee-down {
     animation: marquee-down 8s linear infinite;
   }
+
+  @keyframes orbit-border {
+    0% { top: -8px; left: 0; }
+    25% { top: -8px; left: calc(100% - 280px); }
+    30% { top: 0; left: calc(100% - 14px); transform: rotate(90deg); transform-origin: left top; }
+    45% { top: calc(100% - 8px); left: calc(100% - 14px); transform: rotate(90deg); transform-origin: left top; }
+    50% { top: calc(100% + 2px); left: calc(100% - 280px); transform: rotate(0deg); }
+    75% { top: calc(100% + 2px); left: 0; }
+    80% { top: calc(100% - 8px); left: -6px; transform: rotate(-90deg); transform-origin: right top; }
+    95% { top: -8px; left: -6px; transform: rotate(-90deg); transform-origin: right top; }
+    100% { top: -8px; left: 0; transform: rotate(0deg); }
+  }
+  .orbit-text {
+    animation: orbit-border 10s linear infinite;
+  }
 }
