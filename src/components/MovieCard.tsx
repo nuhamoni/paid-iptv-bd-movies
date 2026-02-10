@@ -31,10 +31,16 @@ const MovieCard = ({ movie, index }: MovieCardProps) => {
         {/* Overlay */}
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
         
-        {/* Play Button - pulsing glow */}
+        {/* Play Button with spinning circle */}
         <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300">
-          <div className="w-16 h-16 rounded-full bg-primary/90 flex items-center justify-center backdrop-blur-sm transform scale-50 group-hover:scale-100 transition-transform duration-500 shadow-[0_0_25px_hsl(0_85%_55%/0.6)]">
-            <Play className="w-7 h-7 text-primary-foreground ml-1" fill="currentColor" />
+          <div className="relative w-16 h-16 flex items-center justify-center">
+            {/* Spinning circle border */}
+            <div className="absolute inset-0 rounded-full border-[3px] border-transparent border-t-primary border-r-primary/50 animate-spin" />
+            <div className="absolute inset-1 rounded-full border-[2px] border-transparent border-b-accent border-l-accent/50 animate-[spin_1.5s_linear_infinite_reverse]" />
+            {/* Play icon */}
+            <div className="w-10 h-10 rounded-full bg-primary/90 flex items-center justify-center backdrop-blur-sm shadow-[0_0_25px_hsl(0_85%_55%/0.6)]">
+              <Play className="w-5 h-5 text-primary-foreground ml-0.5" fill="currentColor" />
+            </div>
           </div>
         </div>
 
