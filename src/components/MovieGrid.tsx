@@ -55,9 +55,6 @@ const MovieGrid = ({ title, movies, genres, activeGenre, onGenreChange }: MovieG
           <h2 className="font-display text-3xl sm:text-4xl text-foreground tracking-wide">
             {title}
           </h2>
-          <p className="text-muted-foreground text-sm mt-1">
-            {movies.length} titles available • Page {currentPage} of {totalPages}
-          </p>
         </div>
       </div>
 
