@@ -62,7 +62,7 @@ const MovieCard = ({ movie, index }: MovieCardProps) => {
             <span className="text-xs">{movie.duration}</span>
           </div>
         </div>
-        <div className="flex items-center justify-between mt-2">
+        <div className="flex items-center justify-between mt-3">
           <div className="flex gap-1.5 flex-wrap">
             {movie.genre.slice(0, 2).map((g) => (
               <span key={g} className="px-2 py-0.5 text-[10px] font-medium bg-secondary text-secondary-foreground rounded-full">
@@ -75,10 +75,12 @@ const MovieCard = ({ movie, index }: MovieCardProps) => {
             onClick={(e) => e.stopPropagation()}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center justify-center w-8 h-8 rounded-full bg-primary/20 text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300 shrink-0"
+            className="relative flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[11px] font-bold uppercase tracking-wider bg-gradient-to-r from-primary to-accent text-accent-foreground shadow-lg shadow-primary/20 hover:shadow-primary/40 hover:scale-105 active:scale-95 transition-all duration-300 shrink-0 overflow-hidden group/dl"
             title="Download"
           >
-            <Download className="w-3.5 h-3.5" />
+            <span className="absolute inset-0 bg-gradient-to-r from-accent to-primary opacity-0 group-hover/dl:opacity-100 transition-opacity duration-500" />
+            <Download className="w-3.5 h-3.5 relative z-10 animate-bounce" />
+            <span className="relative z-10">DL</span>
           </a>
         </div>
       </div>
