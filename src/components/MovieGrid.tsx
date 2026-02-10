@@ -59,14 +59,12 @@ const MovieGrid = ({ title, movies, genres, activeGenre, onGenreChange }: MovieG
         className="group relative block w-full mb-8 rounded-xl transition-all duration-500"
       >
         {/* SVG border with orbiting text */}
-        <svg className="absolute inset-0 w-full h-full pointer-events-none" style={{ overflow: 'visible' }}>
+        <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 800 60" preserveAspectRatio="none">
           <defs>
-            <path id="borderPath" d="M 12,2 L 99%,2 Q 100%,2 100%,12 L 100%,95% Q 100%,100% 99%,100% L 12,100% Q 2,100% 2,95% L 2,12 Q 2,2 12,2 Z" fill="none" />
+            <path id="borderPath" d="M 12,1 H 788 Q 799,1 799,12 V 48 Q 799,59 788,59 H 12 Q 1,59 1,48 V 12 Q 1,1 12,1 Z" fill="none" />
           </defs>
-          {/* Border outline */}
-          <rect x="1" y="1" width="calc(100% - 2px)" height="calc(100% - 2px)" rx="12" fill="none" stroke="hsl(var(--primary))" strokeWidth="1" strokeOpacity="0.3" />
-          {/* Orbiting text */}
-          <text fontSize="14" fontWeight="800" fill="hsl(var(--accent))" letterSpacing="3" fontFamily="Inter, sans-serif">
+          <use href="#borderPath" stroke="hsl(var(--primary))" strokeWidth="0.8" strokeOpacity="0.3" />
+          <text fontSize="11" fontWeight="800" fill="hsl(var(--accent))" letterSpacing="2" fontFamily="Inter, sans-serif">
             <textPath href="#borderPath">
               <animate attributeName="startOffset" from="0%" to="100%" dur="12s" repeatCount="indefinite" />
               ★ PAID IPTV BD - 01767046095 ★
