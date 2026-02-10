@@ -75,12 +75,11 @@ const MovieCard = ({ movie, index }: MovieCardProps) => {
             onClick={(e) => e.stopPropagation()}
             target="_blank"
             rel="noopener noreferrer"
-            className="relative flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[11px] font-bold uppercase tracking-wider bg-gradient-to-r from-primary to-accent text-accent-foreground shadow-lg shadow-primary/20 hover:shadow-primary/40 hover:scale-105 active:scale-95 transition-all duration-300 shrink-0 overflow-hidden group/dl"
+            className="flex items-center gap-1 px-2.5 py-1 rounded-md text-[10px] font-semibold bg-primary text-primary-foreground hover:bg-accent hover:text-accent-foreground transition-all duration-200 shrink-0"
             title="Download"
           >
-            <span className="absolute inset-0 bg-gradient-to-r from-accent to-primary opacity-0 group-hover/dl:opacity-100 transition-opacity duration-500" />
-            <Download className="w-3.5 h-3.5 relative z-10 animate-bounce" />
-            <span className="relative z-10">DL</span>
+            <Download className="w-3 h-3" />
+            Download
           </a>
         </div>
       </div>
