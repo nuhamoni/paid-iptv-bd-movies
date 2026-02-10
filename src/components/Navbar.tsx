@@ -1,5 +1,6 @@
-import { Search, Film, Menu, X } from "lucide-react";
+import { Search, Menu, X } from "lucide-react";
 import { useState } from "react";
+import logo from "@/assets/logo.png";
 
 interface NavbarProps {
   searchQuery: string;
@@ -16,9 +17,9 @@ const Navbar = ({ searchQuery, onSearchChange }: NavbarProps) => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex items-center gap-2">
-            <Film className="w-8 h-8 text-primary" />
+            <img src={logo} alt="PAID IPTV BD" className="w-9 h-9 rounded-md" />
             <span className="font-display text-2xl tracking-wider text-foreground">
-              CINE<span className="text-primary">FLIX</span>
+              PAID IPTV <span className="text-primary">BD</span>
             </span>
           </div>
 
