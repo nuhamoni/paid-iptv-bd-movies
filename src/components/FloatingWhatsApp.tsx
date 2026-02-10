@@ -2,7 +2,12 @@ import { MessageCircle, Send } from "lucide-react";
 
 const FloatingButtons = () => {
   return (
-    <div className="fixed bottom-6 right-6 z-50 flex flex-col gap-3">
+    <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3">
+      {/* Label */}
+      <div className="bg-card/90 backdrop-blur-sm border border-border/50 rounded-full px-4 py-1.5 shadow-lg">
+        <span className="text-xs font-semibold text-foreground tracking-wide">Movie Request</span>
+      </div>
+
       {/* Telegram */}
       <a
         href="https://t.me/"
