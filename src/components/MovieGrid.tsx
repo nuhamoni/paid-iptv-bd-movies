@@ -56,18 +56,25 @@ const MovieGrid = ({ title, movies, genres, activeGenre, onGenreChange }: MovieG
         href="https://wa.me/8801767046095"
         target="_blank"
         rel="noopener noreferrer"
-        className="group relative block w-full mb-8 rounded-xl transition-all duration-500 overflow-hidden border border-primary/30"
+        className="group relative block w-full mb-8 rounded-xl transition-all duration-500 border border-primary/30"
       >
-        {/* Orbiting text label */}
-        <div
-          className="absolute text-sm font-extrabold tracking-widest text-accent whitespace-nowrap pointer-events-none z-10 orbit-text"
-          style={{ textShadow: '0 0 10px hsl(var(--accent) / 0.6)' }}
-        >
-          ★ PAID IPTV BD - 01767046095 ★
+        {/* Scrolling text banner on top */}
+        <div className="w-full overflow-hidden bg-accent/10 rounded-t-xl">
+          <div className="flex whitespace-nowrap marquee-left py-1">
+            <span className="text-sm font-extrabold tracking-[6px] text-accent px-4" style={{ textShadow: '0 0 8px hsl(var(--accent) / 0.5)' }}>
+              ★ PAID IPTV BD - 01767046095 ★
+            </span>
+            <span className="text-sm font-extrabold tracking-[6px] text-accent px-4" style={{ textShadow: '0 0 8px hsl(var(--accent) / 0.5)' }}>
+              ★ PAID IPTV BD - 01767046095 ★
+            </span>
+            <span className="text-sm font-extrabold tracking-[6px] text-accent px-4" style={{ textShadow: '0 0 8px hsl(var(--accent) / 0.5)' }}>
+              ★ PAID IPTV BD - 01767046095 ★
+            </span>
+          </div>
         </div>
 
         {/* Inner content */}
-        <div className="relative rounded-xl bg-gradient-to-r from-primary/10 via-background to-primary/10 py-4 px-6 flex items-center justify-center gap-3">
+        <div className="relative bg-gradient-to-r from-primary/10 via-background to-primary/10 py-4 px-6 flex items-center justify-center gap-3">
           <Crown className="w-6 h-6 text-accent animate-pulse shrink-0" />
           <span className="font-display text-lg sm:text-2xl md:text-3xl tracking-wider text-foreground text-center">
             <span className="text-accent font-bold">BEST IPTV</span>
