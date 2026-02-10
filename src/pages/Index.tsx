@@ -1,6 +1,7 @@
 import { useState, useMemo, useEffect } from "react";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
+import TrendingRow from "@/components/TrendingRow";
 import MovieGrid from "@/components/MovieGrid";
 import Footer from "@/components/Footer";
 import { fetchMoviesFromM3U, genres, type Movie } from "@/data/movies";
@@ -28,6 +29,13 @@ const Index = () => {
 
   const featuredMovie = movies.length > 0 ? movies[0] : null;
 
+  // Trending: first 25 movies
+  const trendingMovies = movies.slice(0, 25);
+  // Bollywood picks
+  const bollywoodMovies = movies.filter((m) => m.genre.includes("Bollywood")).slice(0, 25);
+  // Action picks
+  const actionMovies = movies.filter((m) => m.genre.includes("Action")).slice(0, 25);
+
   return (
     <div className="min-h-screen bg-background">
       <Navbar searchQuery={searchQuery} onSearchChange={setSearchQuery} />
@@ -41,13 +49,22 @@ const Index = () => {
           </div>
         </div>
       ) : (
-        <MovieGrid
-          title="ALL MOVIES"
-          movies={filteredMovies}
-          genres={genres}
-          activeGenre={activeGenre}
-          onGenreChange={setActiveGenre}
-        />
+        <>
+          <TrendingRow title="🔥 TRENDING NOW" movies={trendingMovies} />
+          {bollywoodMovies.length > 0 && (
+            <TrendingRow title="🎬 BOLLYWOOD HITS" movies={bollywoodMovies} />
+          )}
+          {actionMovies.length > 0 && (
+            <TrendingRow title="💥 ACTION PICKS" movies={actionMovies} />
+          )}
+          <MovieGrid
+            title="ALL MOVIES"
+            movies={filteredMovies}
+            genres={genres}
+            activeGenre={activeGenre}
+            onGenreChange={setActiveGenre}
+          />
+        </>
       )}
 
       <Footer />
