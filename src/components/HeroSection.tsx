@@ -13,7 +13,7 @@ const HeroSection = ({ featuredMovie, movies = [] }: HeroSectionProps) => {
   const scrollRef = useRef<HTMLDivElement>(null);
 
   const current = movies.length > 0 ? movies[featuredIdx] : featuredMovie;
-  const title = current?.title || "CINEFLIX";
+  const title = current?.title || "PAID IPTV BD MOVIES";
   const rating = current?.rating || 8.9;
   const year = current?.year || 2024;
   const group = current?.group || "Movies";
