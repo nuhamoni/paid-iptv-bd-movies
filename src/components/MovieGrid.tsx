@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import { ChevronLeft, ChevronRight, Crown, MessageCircle } from "lucide-react";
 import MovieCard from "./MovieCard";
 import GenreFilter from "./GenreFilter";
@@ -16,12 +16,31 @@ interface MovieGridProps {
 
 const MovieGrid = ({ title, movies, genres, activeGenre, onGenreChange }: MovieGridProps) => {
   const [currentPage, setCurrentPage] = useState(1);
+  const bannerRef = useRef<HTMLAnchorElement>(null);
+  const [borderPath, setBorderPath] = useState("");
+
+  const updatePath = useCallback(() => {
+    const el = bannerRef.current;
+    if (!el) return;
+    const w = el.offsetWidth;
+    const h = el.offsetHeight;
+    const r = 12;
+    // Create rectangular path with rounded corners (clockwise)
+    setBorderPath(
+      `M ${r},0 H ${w - r} Q ${w},0 ${w},${r} V ${h - r} Q ${w},${h} ${w - r},${h} H ${r} Q 0,${h} 0,${h - r} V ${r} Q 0,0 ${r},0 Z`
+    );
+  }, []);
+
+  useEffect(() => {
+    updatePath();
+    window.addEventListener("resize", updatePath);
+    return () => window.removeEventListener("resize", updatePath);
+  }, [updatePath]);
 
   const totalPages = Math.ceil(movies.length / MOVIES_PER_PAGE);
   const startIdx = (currentPage - 1) * MOVIES_PER_PAGE;
   const paginatedMovies = movies.slice(startIdx, startIdx + MOVIES_PER_PAGE);
 
-  // Reset to page 1 when filters change
   useEffect(() => {
     setCurrentPage(1);
   }, [activeGenre, movies.length]);
@@ -31,7 +50,6 @@ const MovieGrid = ({ title, movies, genres, activeGenre, onGenreChange }: MovieG
     document.getElementById("movies")?.scrollIntoView({ behavior: "smooth" });
   };
 
-  // Generate page numbers to show
   const getPageNumbers = () => {
     const pages: (number | "...")[] = [];
     if (totalPages <= 7) {
@@ -48,33 +66,45 @@ const MovieGrid = ({ title, movies, genres, activeGenre, onGenreChange }: MovieG
     return pages;
   };
 
+  const orbitText = "★ PAID IPTV BD - 01767046095 ★ PAID IPTV BD - 01767046095 ★ PAID IPTV BD - 01767046095 ★ ";
+
   return (
     <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12" id="movies">
 
       {/* BEST IPTV Banner */}
       <a
+        ref={bannerRef}
         href="https://wa.me/8801767046095"
         target="_blank"
         rel="noopener noreferrer"
         className="group relative block w-full mb-8 rounded-xl transition-all duration-500 border border-primary/30"
       >
-        {/* Scrolling text banner on top */}
-        <div className="w-full overflow-hidden bg-accent/10 rounded-t-xl">
-          <div className="flex whitespace-nowrap marquee-left py-1">
-            <span className="text-sm font-extrabold tracking-[6px] text-accent px-4" style={{ textShadow: '0 0 8px hsl(var(--accent) / 0.5)' }}>
-              ★ PAID IPTV BD - 01767046095 ★
-            </span>
-            <span className="text-sm font-extrabold tracking-[6px] text-accent px-4" style={{ textShadow: '0 0 8px hsl(var(--accent) / 0.5)' }}>
-              ★ PAID IPTV BD - 01767046095 ★
-            </span>
-            <span className="text-sm font-extrabold tracking-[6px] text-accent px-4" style={{ textShadow: '0 0 8px hsl(var(--accent) / 0.5)' }}>
-              ★ PAID IPTV BD - 01767046095 ★
-            </span>
-          </div>
-        </div>
+        {/* Orbiting SVG text around border */}
+        {borderPath && (
+          <svg
+            className="absolute inset-0 w-full h-full pointer-events-none z-10"
+            style={{ overflow: 'visible' }}
+          >
+            <defs>
+              <path id="orbitPath" d={borderPath} fill="none" />
+            </defs>
+            <text
+              fontSize="12"
+              fontWeight="800"
+              fill="hsl(40, 90%, 55%)"
+              letterSpacing="3"
+              style={{ filter: 'drop-shadow(0 0 6px hsl(40 90% 55% / 0.6))' }}
+            >
+              <textPath href="#orbitPath">
+                <animate attributeName="startOffset" from="0%" to="100%" dur="12s" repeatCount="indefinite" />
+                {orbitText}
+              </textPath>
+            </text>
+          </svg>
+        )}
 
         {/* Inner content */}
-        <div className="relative bg-gradient-to-r from-primary/10 via-background to-primary/10 py-4 px-6 flex items-center justify-center gap-3">
+        <div className="relative rounded-xl bg-gradient-to-r from-primary/10 via-background to-primary/10 py-6 px-6 flex items-center justify-center gap-3">
           <Crown className="w-6 h-6 text-accent animate-pulse shrink-0" />
           <span className="font-display text-lg sm:text-2xl md:text-3xl tracking-wider text-foreground text-center">
             <span className="text-accent font-bold">BEST IPTV</span>
