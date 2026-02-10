@@ -56,12 +56,39 @@ const MovieGrid = ({ title, movies, genres, activeGenre, onGenreChange }: MovieG
         href="https://wa.me/8801767046095"
         target="_blank"
         rel="noopener noreferrer"
-        className="group relative block w-full mb-8 overflow-hidden rounded-xl border border-accent/30 bg-gradient-to-r from-primary/20 via-accent/10 to-primary/20 hover:from-primary/30 hover:via-accent/20 hover:to-primary/30 transition-all duration-500"
+        className="group relative block w-full mb-8 rounded-xl bg-gradient-to-r from-primary/20 via-accent/10 to-primary/20 hover:from-primary/30 hover:via-accent/20 hover:to-primary/30 transition-all duration-500"
+        style={{ padding: '2px' }}
       >
-        {/* Animated glow background */}
-        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-accent/5 to-transparent animate-[shimmer_3s_ease-in-out_infinite]" />
-        
-        <div className="relative flex items-center justify-center gap-3 py-4 px-6">
+        {/* Marquee border - rotating text around the border */}
+        <div className="absolute inset-0 rounded-xl overflow-hidden pointer-events-none">
+          {/* Top border marquee */}
+          <div className="absolute top-0 left-0 right-0 h-[2px] overflow-hidden">
+            <div className="whitespace-nowrap animate-[marquee-left_15s_linear_infinite] text-[8px] font-bold tracking-[3px] text-accent leading-[2px]">
+              PAID IPTV BD - 01767046095 • PAID IPTV BD - 01767046095 • PAID IPTV BD - 01767046095 • PAID IPTV BD - 01767046095 • PAID IPTV BD - 01767046095 •&nbsp;
+            </div>
+          </div>
+          {/* Bottom border marquee */}
+          <div className="absolute bottom-0 left-0 right-0 h-[2px] overflow-hidden">
+            <div className="whitespace-nowrap animate-[marquee-right_15s_linear_infinite] text-[8px] font-bold tracking-[3px] text-primary leading-[2px]">
+              PAID IPTV BD - 01767046095 • PAID IPTV BD - 01767046095 • PAID IPTV BD - 01767046095 • PAID IPTV BD - 01767046095 • PAID IPTV BD - 01767046095 •&nbsp;
+            </div>
+          </div>
+          {/* Left border marquee */}
+          <div className="absolute top-0 left-0 bottom-0 w-[2px] overflow-hidden">
+            <div className="animate-[marquee-down_10s_linear_infinite] text-[8px] font-bold tracking-[3px] text-accent" style={{ writingMode: 'vertical-rl' }}>
+              PAID IPTV BD - 01767046095 • PAID IPTV BD - 01767046095 •&nbsp;
+            </div>
+          </div>
+          {/* Right border marquee */}
+          <div className="absolute top-0 right-0 bottom-0 w-[2px] overflow-hidden">
+            <div className="animate-[marquee-up_10s_linear_infinite] text-[8px] font-bold tracking-[3px] text-primary" style={{ writingMode: 'vertical-rl' }}>
+              PAID IPTV BD - 01767046095 • PAID IPTV BD - 01767046095 •&nbsp;
+            </div>
+          </div>
+        </div>
+
+        {/* Inner content */}
+        <div className="relative rounded-[10px] bg-background/90 py-4 px-6 flex items-center justify-center gap-3">
           <Crown className="w-6 h-6 text-accent animate-pulse shrink-0" />
           <span className="font-display text-lg sm:text-2xl md:text-3xl tracking-wider text-foreground text-center">
             <span className="text-accent font-bold">BEST IPTV</span>
@@ -70,9 +97,6 @@ const MovieGrid = ({ title, movies, genres, activeGenre, onGenreChange }: MovieG
           </span>
           <MessageCircle className="w-6 h-6 text-accent group-hover:scale-125 transition-transform duration-300 shrink-0" />
         </div>
-
-        {/* Bottom accent line with animation */}
-        <div className="h-0.5 w-full bg-gradient-to-r from-transparent via-accent to-transparent opacity-50 group-hover:opacity-100 transition-opacity duration-500" />
       </a>
 
       <GenreFilter
