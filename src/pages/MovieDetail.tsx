@@ -99,17 +99,33 @@ const MovieDetail = () => {
               {movie.group}
             </p>
 
-            {/* Download Button */}
+            {/* Download Buttons */}
             {movie.downloadLink && (
-              <a
-                href={movie.downloadLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-3 px-8 py-4 bg-primary text-primary-foreground font-bold text-lg rounded-xl hover:bg-primary/90 transition-all duration-300 hover:shadow-lg hover:shadow-primary/25 mt-4"
-              >
-                <Download className="w-6 h-6" />
-                Download Movie
-              </a>
+              <div className="flex flex-col sm:flex-row gap-4 mt-6">
+                {/* Download Movie */}
+                <a
+                  href={movie.downloadLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group/btn relative inline-flex items-center justify-center gap-3 px-8 py-4 bg-primary text-primary-foreground font-bold text-base rounded-xl overflow-hidden transition-all duration-300 hover:shadow-2xl hover:shadow-primary/30 hover:scale-[1.03] active:scale-95"
+                >
+                  <span className="absolute inset-0 bg-gradient-to-r from-primary via-primary/80 to-primary opacity-0 group-hover/btn:opacity-100 transition-opacity duration-500" />
+                  <Download className="w-5 h-5 relative z-10 group-hover/btn:animate-bounce" />
+                  <span className="relative z-10">Download Movie</span>
+                </a>
+
+                {/* Download Hi Speed BDIX */}
+                <a
+                  href={movie.downloadLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group/btn relative inline-flex items-center justify-center gap-3 px-8 py-4 bg-accent text-accent-foreground font-bold text-base rounded-xl overflow-hidden transition-all duration-300 hover:shadow-2xl hover:shadow-accent/30 hover:scale-[1.03] active:scale-95"
+                >
+                  <span className="absolute inset-0 bg-gradient-to-r from-accent via-accent/80 to-accent opacity-0 group-hover/btn:opacity-100 transition-opacity duration-500" />
+                  <Download className="w-5 h-5 relative z-10 group-hover/btn:animate-bounce" />
+                  <span className="relative z-10">Download Hi Speed BDIX</span>
+                </a>
+              </div>
             )}
           </div>
         </div>
