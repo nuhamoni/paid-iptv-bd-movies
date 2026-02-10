@@ -69,7 +69,7 @@ const MovieGrid = ({ title, movies, genres, activeGenre, onGenreChange }: MovieG
   const orbitText = "★ PAID IPTV BD - 01767046095 ★ PAID IPTV BD - 01767046095 ★ PAID IPTV BD - 01767046095 ★ ";
 
   return (
-    <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12" id="movies">
+    <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4 pb-12" id="movies">
 
       {/* BEST IPTV Banner */}
       <a
