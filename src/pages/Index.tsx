@@ -31,7 +31,7 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navbar searchQuery={searchQuery} onSearchChange={setSearchQuery} />
-      <HeroSection featuredMovie={featuredMovie} />
+      <HeroSection featuredMovie={featuredMovie} movies={movies.slice(0, 20)} />
 
       {loading ? (
         <div className="flex items-center justify-center py-20">
