@@ -72,18 +72,13 @@ const MovieGrid = ({ title, movies, genres, activeGenre, onGenreChange, searchQu
 
       {/* Age Warning Banner */}
       {!searchQuery && (
-        <div className="w-full mb-8 rounded-xl border border-accent/30 bg-gradient-to-r from-accent/5 via-background to-accent/5 py-4 px-6">
-          <div className="flex flex-col items-center text-center gap-2">
-            <div className="flex items-center gap-2">
-              <AlertTriangle className="w-5 h-5 text-accent shrink-0" />
-              <span className="font-display text-sm sm:text-base font-bold tracking-wider text-accent">
-                AGE RESTRICTION NOTICE
-              </span>
-              <AlertTriangle className="w-5 h-5 text-accent shrink-0" />
-            </div>
-            <p className="text-xs sm:text-sm text-muted-foreground max-w-xl leading-relaxed">
-              This website may contain content intended for adults (<span className="text-primary font-semibold">18+</span>). By entering, you confirm that you are 18 years or older and accept full responsibility for your access and use of this site.
-            </p>
+        <div className="w-full mb-6 rounded-lg border border-accent/20 bg-accent/5 py-2 px-4">
+          <div className="flex items-center justify-center gap-2 flex-wrap">
+            <AlertTriangle className="w-3.5 h-3.5 text-accent shrink-0" />
+            <span className="text-[11px] sm:text-xs font-semibold text-accent tracking-wide">18+</span>
+            <span className="text-[10px] sm:text-[11px] text-muted-foreground">
+              This site may contain adult content. By entering, you confirm you are 18+.
+            </span>
           </div>
         </div>
       )}
