@@ -20,6 +20,7 @@ const Footer = () => {
               { label: "Disclaimer", href: "/disclaimer" },
               { label: "DMCA Policy", href: "/dmca-policy" },
               { label: "Privacy Policy", href: "/privacy-policy" },
+              { label: "Copyright Notice", href: "/copyright-notice" },
               { label: "Terms", href: "#" },
             ].map((item) => (
               <Link
