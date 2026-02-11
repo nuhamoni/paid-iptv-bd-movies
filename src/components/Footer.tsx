@@ -36,6 +36,12 @@ const Footer = () => {
             Made with <Heart className="w-3 h-3 text-primary" fill="currentColor" /> PAID IPTV BD 2026
           </p>
         </div>
+        {/* Disclaimer line */}
+        <div className="mt-6 pt-4 border-t border-border/30 flex justify-center">
+          <p className="text-[11px] text-muted-foreground/60 tracking-wide text-center italic">
+            ⚠️ We do not host any content; all links are from third-party sources.
+          </p>
+        </div>
       </div>
     </footer>
   );
