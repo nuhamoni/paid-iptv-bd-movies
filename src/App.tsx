@@ -10,6 +10,7 @@ import Disclaimer from "./pages/Disclaimer";
 import DmcaPolicy from "./pages/DmcaPolicy";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import ContactUs from "./pages/ContactUs";
+import CopyrightNotice from "./pages/CopyrightNotice";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -27,6 +28,7 @@ const App = () => (
           <Route path="/dmca-policy" element={<DmcaPolicy />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/contact-us" element={<ContactUs />} />
+          <Route path="/copyright-notice" element={<CopyrightNotice />} />
           <Route path="/movie/:id" element={<MovieDetail />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
