@@ -101,22 +101,33 @@ const MovieDetail = () => {
 
             {/* Download Buttons */}
             {movie.downloadLink && (
-              <div className="flex gap-4 mt-6">
+              <div className="flex flex-col items-start gap-4 mt-6">
                 {/* Download Hi Speed BDIX */}
                 <a
                   href={movie.downloadLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group/btn relative inline-flex items-center justify-center gap-3 px-8 py-4 bg-accent text-accent-foreground font-bold text-base rounded-xl overflow-hidden transition-all duration-300 hover:shadow-2xl hover:shadow-accent/30 hover:scale-[1.03] active:scale-95"
+                  className="group/btn relative inline-flex items-center justify-center gap-3 px-10 py-5 bg-gradient-to-r from-accent via-yellow-400 to-accent text-accent-foreground font-bold text-lg rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-[0_0_40px_hsl(40_90%_55%/0.5),0_0_80px_hsl(40_90%_55%/0.2)] hover:scale-[1.05] active:scale-95 border-2 border-yellow-300/30"
                 >
                   {/* Shimmer sweep */}
-                  <span className="absolute inset-0 -translate-x-full group-hover/btn:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-white/30 to-transparent" />
-                  {/* Pulse ring */}
-                  <span className="absolute inset-0 rounded-xl animate-ping opacity-20 bg-accent" style={{ animationDuration: '2s' }} />
-                  {/* Glow background */}
-                  <span className="absolute inset-0 bg-gradient-to-r from-accent via-yellow-400 to-accent bg-[length:200%_100%] animate-[shimmer_2s_linear_infinite] opacity-0 group-hover/btn:opacity-100 transition-opacity duration-500" />
-                  <Download className="w-5 h-5 relative z-10 animate-bounce" style={{ animationDuration: '1.5s' }} />
-                  <span className="relative z-10 tracking-wide">Download Hi Speed BDIX</span>
+                  <span className="absolute inset-0 -translate-x-full group-hover/btn:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-white/40 to-transparent" />
+                  {/* Outer pulse ring */}
+                  <span className="absolute -inset-1 rounded-2xl animate-ping opacity-15 bg-accent" style={{ animationDuration: '2.5s' }} />
+                  {/* Inner pulse ring */}
+                  <span className="absolute -inset-0.5 rounded-2xl animate-ping opacity-10 bg-yellow-300" style={{ animationDuration: '3s' }} />
+                  {/* Rotating border glow */}
+                  <span className="absolute -inset-[2px] rounded-2xl bg-[conic-gradient(from_var(--angle),transparent_40%,hsl(40_90%_55%)_50%,transparent_60%)] opacity-0 group-hover/btn:opacity-100 transition-opacity duration-500 animate-[spin_3s_linear_infinite] -z-10" style={{ '--angle': '0deg' } as React.CSSProperties} />
+                  {/* Glow background shimmer */}
+                  <span className="absolute inset-0 bg-gradient-to-r from-accent via-yellow-300 to-accent bg-[length:200%_100%] animate-[shimmer_2s_linear_infinite] opacity-40" />
+                  {/* Sparkle particles */}
+                  <span className="absolute top-1 left-4 w-1.5 h-1.5 bg-white rounded-full animate-ping opacity-60" style={{ animationDuration: '1.8s' }} />
+                  <span className="absolute bottom-2 right-6 w-1 h-1 bg-white rounded-full animate-ping opacity-50" style={{ animationDuration: '2.2s' }} />
+                  <span className="absolute top-3 right-10 w-1 h-1 bg-yellow-200 rounded-full animate-ping opacity-40" style={{ animationDuration: '2.8s' }} />
+                  {/* Icon */}
+                  <Download className="w-6 h-6 relative z-10 animate-bounce drop-shadow-[0_0_8px_rgba(255,255,255,0.6)]" style={{ animationDuration: '1.2s' }} />
+                  <span className="relative z-10 tracking-wider drop-shadow-[0_2px_4px_rgba(0,0,0,0.3)]">Download Hi Speed BDIX</span>
+                  {/* Right arrow pulse */}
+                  <span className="relative z-10 animate-[pulse_1.5s_ease-in-out_infinite] text-xl">⚡</span>
                 </a>
               </div>
             )}
