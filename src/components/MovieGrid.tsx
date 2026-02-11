@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, useCallback } from "react";
+import { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight, Crown, MessageCircle } from "lucide-react";
 import MovieCard from "./MovieCard";
 import GenreFilter from "./GenreFilter";
@@ -17,26 +17,6 @@ interface MovieGridProps {
 
 const MovieGrid = ({ title, movies, genres, activeGenre, onGenreChange, searchQuery = "" }: MovieGridProps) => {
   const [currentPage, setCurrentPage] = useState(1);
-  const bannerRef = useRef<HTMLAnchorElement>(null);
-  const [borderPath, setBorderPath] = useState("");
-
-  const updatePath = useCallback(() => {
-    const el = bannerRef.current;
-    if (!el) return;
-    const w = el.offsetWidth;
-    const h = el.offsetHeight;
-    const r = 12;
-    // Create rectangular path with rounded corners (clockwise)
-    setBorderPath(
-      `M ${r},0 H ${w - r} Q ${w},0 ${w},${r} V ${h - r} Q ${w},${h} ${w - r},${h} H ${r} Q 0,${h} 0,${h - r} V ${r} Q 0,0 ${r},0 Z`
-    );
-  }, []);
-
-  useEffect(() => {
-    updatePath();
-    window.addEventListener("resize", updatePath);
-    return () => window.removeEventListener("resize", updatePath);
-  }, [updatePath]);
 
   const totalPages = Math.ceil(movies.length / MOVIES_PER_PAGE);
   const startIdx = (currentPage - 1) * MOVIES_PER_PAGE;
@@ -67,7 +47,7 @@ const MovieGrid = ({ title, movies, genres, activeGenre, onGenreChange, searchQu
     return pages;
   };
 
-  const orbitText = "★ PAID IPTV BD - 01767046095 ★ PAID IPTV BD - 01767046095 ★ PAID IPTV BD - 01767046095 ★ ";
+  
 
   return (
     <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4 pb-12" id="movies">
@@ -75,34 +55,11 @@ const MovieGrid = ({ title, movies, genres, activeGenre, onGenreChange, searchQu
       {/* BEST IPTV Banner - hide when searching */}
       {!searchQuery && (
         <a
-          ref={bannerRef}
           href="https://wa.me/8801767046095"
           target="_blank"
           rel="noopener noreferrer"
           className="group relative block w-full mb-8 rounded-xl transition-all duration-500 border border-primary/30"
         >
-          {borderPath && (
-            <svg
-              className="absolute inset-0 w-full h-full pointer-events-none z-10"
-              style={{ overflow: 'visible' }}
-            >
-              <defs>
-                <path id="orbitPath" d={borderPath} fill="none" />
-              </defs>
-              <text
-                fontSize="12"
-                fontWeight="800"
-                fill="hsl(40, 90%, 55%)"
-                letterSpacing="3"
-                style={{ filter: 'drop-shadow(0 0 6px hsl(40 90% 55% / 0.6))' }}
-              >
-                <textPath href="#orbitPath">
-                  <animate attributeName="startOffset" from="100%" to="0%" dur="25s" repeatCount="indefinite" />
-                  {orbitText}
-                </textPath>
-              </text>
-            </svg>
-          )}
           <div className="relative rounded-xl bg-gradient-to-r from-primary/10 via-background to-primary/10 py-6 px-6 flex items-center justify-center gap-3">
             <Crown className="w-6 h-6 text-accent animate-pulse shrink-0" />
             <span className="font-display text-lg sm:text-2xl md:text-3xl tracking-wider text-foreground text-center">
