@@ -16,6 +16,7 @@ const Footer = () => {
           <div className="flex items-center gap-8 text-sm text-muted-foreground">
             {[
               { label: "About", href: "#" },
+              { label: "Contact Us", href: "/contact-us" },
               { label: "Disclaimer", href: "/disclaimer" },
               { label: "DMCA Policy", href: "/dmca-policy" },
               { label: "Privacy Policy", href: "/privacy-policy" },
