@@ -66,6 +66,7 @@ const Index = () => {
               genres={genres}
               activeGenre={activeGenre}
               onGenreChange={setActiveGenre}
+              searchQuery={searchQuery}
             />
           </section>
         )}
