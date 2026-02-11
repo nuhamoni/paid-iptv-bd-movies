@@ -109,9 +109,14 @@ const MovieDetail = () => {
                   rel="noopener noreferrer"
                   className="group/btn relative inline-flex items-center justify-center gap-3 px-8 py-4 bg-accent text-accent-foreground font-bold text-base rounded-xl overflow-hidden transition-all duration-300 hover:shadow-2xl hover:shadow-accent/30 hover:scale-[1.03] active:scale-95"
                 >
-                  <span className="absolute inset-0 bg-gradient-to-r from-accent via-accent/80 to-accent opacity-0 group-hover/btn:opacity-100 transition-opacity duration-500" />
-                  <Download className="w-5 h-5 relative z-10 group-hover/btn:animate-bounce" />
-                  <span className="relative z-10">Download Hi Speed BDIX</span>
+                  {/* Shimmer sweep */}
+                  <span className="absolute inset-0 -translate-x-full group-hover/btn:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-white/30 to-transparent" />
+                  {/* Pulse ring */}
+                  <span className="absolute inset-0 rounded-xl animate-ping opacity-20 bg-accent" style={{ animationDuration: '2s' }} />
+                  {/* Glow background */}
+                  <span className="absolute inset-0 bg-gradient-to-r from-accent via-yellow-400 to-accent bg-[length:200%_100%] animate-[shimmer_2s_linear_infinite] opacity-0 group-hover/btn:opacity-100 transition-opacity duration-500" />
+                  <Download className="w-5 h-5 relative z-10 animate-bounce" style={{ animationDuration: '1.5s' }} />
+                  <span className="relative z-10 tracking-wide">Download Hi Speed BDIX</span>
                 </a>
               </div>
             )}
