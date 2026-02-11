@@ -4,16 +4,15 @@ const FloatingButtons = () => {
   return (
     <>
       {/* Movie Request label with dotted arrow */}
-      <div className="fixed bottom-44 right-24 z-50 flex flex-col items-end pointer-events-none select-none">
-        <span className="text-xl md:text-2xl font-bold text-accent tracking-wide">
+      <div className="fixed bottom-28 right-16 md:bottom-44 md:right-24 z-50 flex flex-col items-end pointer-events-none select-none hidden md:flex">
+        <span className="text-base md:text-2xl font-bold text-accent tracking-wide">
           Movie Request
         </span>
-        {/* Dotted arrow pointing to buttons */}
         <svg
-          width="100"
-          height="80"
+          width="70"
+          height="50"
           viewBox="0 0 100 80"
-          className="mt-1"
+          className="mt-1 md:w-[100px] md:h-[80px]"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
@@ -25,7 +24,6 @@ const FloatingButtons = () => {
             strokeLinecap="round"
             fill="none"
           />
-          {/* Arrow head */}
           <polygon
             points="80,60 90,75 75,72"
             fill="hsl(var(--muted-foreground))"
