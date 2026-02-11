@@ -13,11 +13,16 @@ const Footer = () => {
               PAID IPTV <span className="text-primary">BD MOVIES</span>
             </span>
           </Link>
-          <div className="flex items-center gap-6 text-sm text-muted-foreground">
-            <a href="#" className="hover:text-primary transition-colors">About</a>
-            <a href="#" className="hover:text-primary transition-colors">Contact</a>
-            <a href="#" className="hover:text-primary transition-colors">Privacy</a>
-            <a href="#" className="hover:text-primary transition-colors">Terms</a>
+          <div className="flex items-center gap-8 text-sm text-muted-foreground">
+            {["About", "Contact", "Privacy", "Terms"].map((item) => (
+              <a
+                key={item}
+                href="#"
+                className="relative py-1 hover:text-foreground transition-colors duration-300 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-primary after:transition-all after:duration-300 hover:after:w-full hover:drop-shadow-[0_0_6px_hsl(0_85%_55%/0.5)]"
+              >
+                {item}
+              </a>
+            ))}
           </div>
           <p className="text-xs text-muted-foreground flex items-center gap-1">
             Made with <Heart className="w-3 h-3 text-primary" fill="currentColor" /> PAID IPTV BD 2026
