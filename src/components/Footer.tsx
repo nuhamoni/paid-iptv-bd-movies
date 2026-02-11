@@ -14,14 +14,19 @@ const Footer = () => {
             </span>
           </Link>
           <div className="flex items-center gap-8 text-sm text-muted-foreground">
-            {["About", "Contact", "Privacy", "Terms"].map((item) => (
-              <a
-                key={item}
-                href="#"
+            {[
+              { label: "About", href: "#" },
+              { label: "Disclaimer", href: "/disclaimer" },
+              { label: "Privacy", href: "#" },
+              { label: "Terms", href: "#" },
+            ].map((item) => (
+              <Link
+                key={item.label}
+                to={item.href}
                 className="relative py-1 hover:text-foreground transition-colors duration-300 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-primary after:transition-all after:duration-300 hover:after:w-full hover:drop-shadow-[0_0_6px_hsl(0_85%_55%/0.5)]"
               >
-                {item}
-              </a>
+                {item.label}
+              </Link>
             ))}
           </div>
           <p className="text-xs text-muted-foreground flex items-center gap-1">
