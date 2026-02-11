@@ -12,9 +12,10 @@ interface MovieGridProps {
   genres: string[];
   activeGenre: string;
   onGenreChange: (genre: string) => void;
+  searchQuery?: string;
 }
 
-const MovieGrid = ({ title, movies, genres, activeGenre, onGenreChange }: MovieGridProps) => {
+const MovieGrid = ({ title, movies, genres, activeGenre, onGenreChange, searchQuery = "" }: MovieGridProps) => {
   const [currentPage, setCurrentPage] = useState(1);
   const bannerRef = useRef<HTMLAnchorElement>(null);
   const [borderPath, setBorderPath] = useState("");
@@ -71,49 +72,48 @@ const MovieGrid = ({ title, movies, genres, activeGenre, onGenreChange }: MovieG
   return (
     <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4 pb-12" id="movies">
 
-      {/* BEST IPTV Banner */}
-      <a
-        ref={bannerRef}
-        href="https://wa.me/8801767046095"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="group relative block w-full mb-8 rounded-xl transition-all duration-500 border border-primary/30"
-      >
-        {/* Orbiting SVG text around border */}
-        {borderPath && (
-          <svg
-            className="absolute inset-0 w-full h-full pointer-events-none z-10"
-            style={{ overflow: 'visible' }}
-          >
-            <defs>
-              <path id="orbitPath" d={borderPath} fill="none" />
-            </defs>
-            <text
-              fontSize="12"
-              fontWeight="800"
-              fill="hsl(40, 90%, 55%)"
-              letterSpacing="3"
-              style={{ filter: 'drop-shadow(0 0 6px hsl(40 90% 55% / 0.6))' }}
+      {/* BEST IPTV Banner - hide when searching */}
+      {!searchQuery && (
+        <a
+          ref={bannerRef}
+          href="https://wa.me/8801767046095"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group relative block w-full mb-8 rounded-xl transition-all duration-500 border border-primary/30"
+        >
+          {borderPath && (
+            <svg
+              className="absolute inset-0 w-full h-full pointer-events-none z-10"
+              style={{ overflow: 'visible' }}
             >
-              <textPath href="#orbitPath">
-                <animate attributeName="startOffset" from="100%" to="0%" dur="25s" repeatCount="indefinite" />
-                {orbitText}
-              </textPath>
-            </text>
-          </svg>
-        )}
-
-        {/* Inner content */}
-        <div className="relative rounded-xl bg-gradient-to-r from-primary/10 via-background to-primary/10 py-6 px-6 flex items-center justify-center gap-3">
-          <Crown className="w-6 h-6 text-accent animate-pulse shrink-0" />
-          <span className="font-display text-lg sm:text-2xl md:text-3xl tracking-wider text-foreground text-center">
-            <span className="text-accent font-bold">BEST IPTV</span>
-            <span className="mx-2 text-muted-foreground">IN</span>
-            <span className="text-primary font-bold">BANGLADESH</span>
-          </span>
-          <MessageCircle className="w-6 h-6 text-accent group-hover:scale-125 transition-transform duration-300 shrink-0" />
-        </div>
-      </a>
+              <defs>
+                <path id="orbitPath" d={borderPath} fill="none" />
+              </defs>
+              <text
+                fontSize="12"
+                fontWeight="800"
+                fill="hsl(40, 90%, 55%)"
+                letterSpacing="3"
+                style={{ filter: 'drop-shadow(0 0 6px hsl(40 90% 55% / 0.6))' }}
+              >
+                <textPath href="#orbitPath">
+                  <animate attributeName="startOffset" from="100%" to="0%" dur="25s" repeatCount="indefinite" />
+                  {orbitText}
+                </textPath>
+              </text>
+            </svg>
+          )}
+          <div className="relative rounded-xl bg-gradient-to-r from-primary/10 via-background to-primary/10 py-6 px-6 flex items-center justify-center gap-3">
+            <Crown className="w-6 h-6 text-accent animate-pulse shrink-0" />
+            <span className="font-display text-lg sm:text-2xl md:text-3xl tracking-wider text-foreground text-center">
+              <span className="text-accent font-bold">BEST IPTV</span>
+              <span className="mx-2 text-muted-foreground">IN</span>
+              <span className="text-primary font-bold">BANGLADESH</span>
+            </span>
+            <MessageCircle className="w-6 h-6 text-accent group-hover:scale-125 transition-transform duration-300 shrink-0" />
+          </div>
+        </a>
+      )}
 
       <GenreFilter
         genres={genres}
