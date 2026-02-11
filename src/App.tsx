@@ -8,6 +8,7 @@ import MovieDetail from "./pages/MovieDetail";
 import VipMovies from "./pages/VipMovies";
 import Disclaimer from "./pages/Disclaimer";
 import DmcaPolicy from "./pages/DmcaPolicy";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -23,6 +24,7 @@ const App = () => (
           <Route path="/vip" element={<VipMovies />} />
           <Route path="/disclaimer" element={<Disclaimer />} />
           <Route path="/dmca-policy" element={<DmcaPolicy />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/movie/:id" element={<MovieDetail />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
