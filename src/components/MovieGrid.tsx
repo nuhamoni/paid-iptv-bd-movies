@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { ChevronLeft, ChevronRight, Crown, MessageCircle } from "lucide-react";
+import { ChevronLeft, ChevronRight, Crown, MessageCircle, AlertTriangle } from "lucide-react";
 import MovieCard from "./MovieCard";
 import GenreFilter from "./GenreFilter";
 import type { Movie } from "@/data/movies";
@@ -47,8 +47,6 @@ const MovieGrid = ({ title, movies, genres, activeGenre, onGenreChange, searchQu
     return pages;
   };
 
-  
-
   return (
     <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4 pb-12" id="movies">
 
@@ -58,7 +56,7 @@ const MovieGrid = ({ title, movies, genres, activeGenre, onGenreChange, searchQu
           href="https://wa.me/8801767046095"
           target="_blank"
           rel="noopener noreferrer"
-          className="group relative block w-full mb-8 rounded-xl transition-all duration-500 border border-primary/30"
+          className="group relative block w-full mb-4 rounded-xl transition-all duration-500 border border-primary/30"
         >
           <div className="relative rounded-xl bg-gradient-to-r from-primary/10 via-background to-primary/10 py-6 px-6 flex items-center justify-center gap-3">
             <Crown className="w-6 h-6 text-accent animate-pulse shrink-0" />
@@ -70,6 +68,24 @@ const MovieGrid = ({ title, movies, genres, activeGenre, onGenreChange, searchQu
             <MessageCircle className="w-6 h-6 text-accent group-hover:scale-125 transition-transform duration-300 shrink-0" />
           </div>
         </a>
+      )}
+
+      {/* Age Warning Banner */}
+      {!searchQuery && (
+        <div className="w-full mb-8 rounded-xl border border-accent/30 bg-gradient-to-r from-accent/5 via-background to-accent/5 py-4 px-6">
+          <div className="flex flex-col items-center text-center gap-2">
+            <div className="flex items-center gap-2">
+              <AlertTriangle className="w-5 h-5 text-accent shrink-0" />
+              <span className="font-display text-sm sm:text-base font-bold tracking-wider text-accent">
+                AGE RESTRICTION NOTICE
+              </span>
+              <AlertTriangle className="w-5 h-5 text-accent shrink-0" />
+            </div>
+            <p className="text-xs sm:text-sm text-muted-foreground max-w-xl leading-relaxed">
+              This website may contain content intended for adults (<span className="text-primary font-semibold">18+</span>). By entering, you confirm that you are 18 years or older and accept full responsibility for your access and use of this site.
+            </p>
+          </div>
+        </div>
       )}
 
       <GenreFilter
