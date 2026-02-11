@@ -17,7 +17,7 @@ const Footer = () => {
             {[
               { label: "About", href: "#" },
               { label: "Disclaimer", href: "/disclaimer" },
-              { label: "Privacy", href: "#" },
+              { label: "DMCA Policy", href: "/dmca-policy" },
               { label: "Terms", href: "#" },
             ].map((item) => (
               <Link
