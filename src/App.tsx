@@ -18,7 +18,7 @@ import NotFound from "./pages/NotFound";
 const queryClient = new QueryClient();
 
 const App = () => {
-  const [unlocked, setUnlocked] = useState(() => sessionStorage.getItem("site_unlocked") === "true");
+  const [unlocked, setUnlocked] = useState(() => localStorage.getItem("site_unlocked") === "true");
 
   if (!unlocked) {
     return <PasswordGate onUnlock={() => setUnlocked(true)} />;

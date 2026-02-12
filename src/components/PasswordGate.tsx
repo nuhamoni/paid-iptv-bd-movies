@@ -23,7 +23,7 @@ const PasswordGate = ({ onUnlock }: PasswordGateProps) => {
     if (password === "4545") {
       setUnlocking(true);
       setTimeout(() => {
-        sessionStorage.setItem("site_unlocked", "true");
+        localStorage.setItem("site_unlocked", "true");
         onUnlock();
       }, 1200);
     } else {
