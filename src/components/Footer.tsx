@@ -13,7 +13,7 @@ const Footer = () => {
               PAID IPTV <span className="text-primary">BD MOVIES</span>
             </span>
           </Link>
-          <div className="flex items-center gap-8 text-sm text-muted-foreground">
+          <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm text-muted-foreground">
             {[
               { label: "About", href: "#" },
               { label: "Contact Us", href: "/contact-us" },
@@ -37,7 +37,7 @@ const Footer = () => {
           </p>
         </div>
         {/* Disclaimer line */}
-        <div className="mt-6 pt-4 border-t border-border/30 flex justify-center">
+        <div className="mt-6 pt-4 border-t border-border/30 flex justify-center pb-20 md:pb-0">
           <p className="text-[11px] text-muted-foreground/60 tracking-wide text-center italic">
             ⚠️ We do not host any content; all links are from third-party sources.
           </p>
