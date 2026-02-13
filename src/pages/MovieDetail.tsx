@@ -107,7 +107,7 @@ const MovieDetail = () => {
                   href={movie.downloadLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group/btn relative inline-flex items-center justify-center gap-3 px-10 py-5 bg-gradient-to-r from-accent via-yellow-400 to-accent text-accent-foreground font-bold text-lg rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-[0_0_40px_hsl(40_90%_55%/0.5),0_0_80px_hsl(40_90%_55%/0.2)] hover:scale-[1.05] active:scale-95 border-2 border-yellow-300/30"
+                  className="group/btn relative inline-flex items-center justify-center gap-2 sm:gap-3 px-6 sm:px-10 py-4 sm:py-5 bg-gradient-to-r from-accent via-yellow-400 to-accent text-accent-foreground font-bold text-base sm:text-lg rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-[0_0_40px_hsl(40_90%_55%/0.5),0_0_80px_hsl(40_90%_55%/0.2)] hover:scale-[1.05] active:scale-95 border-2 border-yellow-300/30 max-w-full"
                 >
                   {/* Shimmer sweep */}
                   <span className="absolute inset-0 -translate-x-full group-hover/btn:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-white/40 to-transparent" />
