@@ -15,13 +15,11 @@ const Footer = () => {
           </Link>
           <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm text-muted-foreground">
             {[
-              { label: "About", href: "#" },
               { label: "Contact Us", href: "/contact-us" },
               { label: "Disclaimer", href: "/disclaimer" },
               { label: "DMCA Policy", href: "/dmca-policy" },
               { label: "Privacy Policy", href: "/privacy-policy" },
               { label: "Copyright Notice", href: "/copyright-notice" },
-              { label: "Terms", href: "#" },
             ].map((item) => (
               <Link
                 key={item.label}
