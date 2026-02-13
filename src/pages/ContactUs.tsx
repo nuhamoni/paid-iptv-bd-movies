@@ -5,8 +5,8 @@ const ContactUs = () => {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <Navbar searchQuery="" onSearchChange={() => {}} />
-      <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <h1 className="font-display text-3xl sm:text-4xl font-bold mb-2 text-foreground">
+      <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-12">
+        <h1 className="font-display text-2xl sm:text-3xl md:text-4xl font-bold mb-2 text-foreground break-words">
           Contact Us – <span className="text-primary">PAID IPTV BD</span>
         </h1>
         <p className="text-sm text-muted-foreground mb-8">Last Updated: 12/02/2026</p>

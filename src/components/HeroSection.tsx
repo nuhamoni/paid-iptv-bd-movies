@@ -81,13 +81,13 @@ const HeroSection = ({ featuredMovie, movies = [] }: HeroSectionProps) => {
         <>
           <button
             onClick={() => navigate("prev")}
-            className="absolute left-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-background/30 backdrop-blur-md border border-border/30 flex items-center justify-center text-foreground hover:bg-primary/20 hover:border-primary/50 hover:scale-110 transition-all duration-300"
+            className="absolute left-2 top-1/3 -translate-y-1/2 z-30 w-10 h-10 md:w-12 md:h-12 md:left-4 md:top-1/2 rounded-full bg-background/50 backdrop-blur-md border border-border/30 flex items-center justify-center text-foreground hover:bg-primary/20 hover:border-primary/50 hover:scale-110 transition-all duration-300"
           >
-            <ChevronLeft className="w-6 h-6" />
+            <ChevronLeft className="w-5 h-5 md:w-6 md:h-6" />
           </button>
           <button
             onClick={() => navigate("next")}
-            className="absolute right-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-background/30 backdrop-blur-md border border-border/30 flex items-center justify-center text-foreground hover:bg-primary/20 hover:border-primary/50 hover:scale-110 transition-all duration-300"
+            className="absolute right-2 top-1/3 -translate-y-1/2 z-30 w-10 h-10 md:w-12 md:h-12 md:right-4 md:top-1/2 rounded-full bg-background/50 backdrop-blur-md border border-border/30 flex items-center justify-center text-foreground hover:bg-primary/20 hover:border-primary/50 hover:scale-110 transition-all duration-300"
           >
             <ChevronRight className="w-6 h-6" />
           </button>
