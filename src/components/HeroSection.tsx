@@ -120,23 +120,23 @@ const HeroSection = ({ featuredMovie, movies = [] }: HeroSectionProps) => {
             <span className="text-accent font-medium">IMDB {rating}</span>
           </div>
 
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-3 sm:gap-4">
             {current?.downloadLink && (
               <a
                 href={current.downloadLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex items-center gap-2.5 px-8 py-3.5 bg-primary text-primary-foreground font-bold rounded-lg hover:bg-primary/90 transition-all duration-300 hover:shadow-[0_0_30px_hsl(var(--primary)/0.4)] hover:scale-105 active:scale-95"
+                className="group flex items-center gap-2 sm:gap-2.5 px-5 py-2.5 sm:px-8 sm:py-3.5 bg-primary text-primary-foreground font-bold text-sm sm:text-base rounded-lg hover:bg-primary/90 transition-all duration-300 hover:shadow-[0_0_30px_hsl(var(--primary)/0.4)] hover:scale-105 active:scale-95"
               >
-                <Play className="w-5 h-5 group-hover:animate-pulse" fill="currentColor" />
+                <Play className="w-4 h-4 sm:w-5 sm:h-5 group-hover:animate-pulse" fill="currentColor" />
                 Download Now
               </a>
             )}
             <Link
               to={current ? `/movie/${current.id}` : "#"}
-              className="group flex items-center gap-2.5 px-7 py-3.5 bg-secondary/50 text-secondary-foreground font-semibold rounded-lg border border-border/50 hover:bg-secondary/80 hover:border-foreground/20 transition-all duration-300 backdrop-blur-md hover:scale-105 active:scale-95"
+              className="group flex items-center gap-2 sm:gap-2.5 px-4 py-2.5 sm:px-7 sm:py-3.5 bg-secondary/50 text-secondary-foreground font-semibold text-sm sm:text-base rounded-lg border border-border/50 hover:bg-secondary/80 hover:border-foreground/20 transition-all duration-300 backdrop-blur-md hover:scale-105 active:scale-95"
             >
-              <Info className="w-5 h-5 group-hover:rotate-12 transition-transform" />
+              <Info className="w-4 h-4 sm:w-5 sm:h-5 group-hover:rotate-12 transition-transform" />
               More Info
             </Link>
           </div>
