@@ -128,13 +128,15 @@ const HeroSection = ({ featuredMovie, movies = [] }: HeroSectionProps) => {
               <Play className="w-4 h-4 sm:w-5 sm:h-5 group-hover:animate-pulse" fill="currentColor" />
               VIP Movies
             </Link>
-            <Link
-              to={current ? `/movie/${current.id}` : "#"}
+            <a
+              href="https://wa.me/8801767046095"
+              target="_blank"
+              rel="noopener noreferrer"
               className="group flex items-center gap-2 sm:gap-2.5 px-4 py-2.5 sm:px-7 sm:py-3.5 bg-secondary/50 text-secondary-foreground font-semibold text-sm sm:text-base rounded-lg border border-border/50 hover:bg-secondary/80 hover:border-foreground/20 transition-all duration-300 backdrop-blur-md hover:scale-105 active:scale-95"
             >
               <Info className="w-4 h-4 sm:w-5 sm:h-5 group-hover:rotate-12 transition-transform" />
               More Service
-            </Link>
+            </a>
           </div>
 
           <div className="mt-3 flex items-center gap-2 text-sm text-muted-foreground">
