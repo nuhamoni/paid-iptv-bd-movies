@@ -13,15 +13,24 @@ const FloatingButtons = () => {
   return (
     <>
       {/* Back to Top - left side */}
-      {showTop && (
+      <div
+        className={`fixed bottom-6 left-6 z-50 transition-all duration-500 ${
+          showTop ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-8 scale-75 pointer-events-none"
+        }`}
+      >
         <button
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          className="fixed bottom-6 left-6 z-50 w-12 h-12 rounded-full bg-primary/90 flex items-center justify-center shadow-lg shadow-primary/30 hover:scale-110 hover:bg-primary transition-all duration-300 active:scale-95 backdrop-blur-sm border border-primary-foreground/10"
+          className="group relative w-12 h-12 rounded-full bg-primary flex items-center justify-center shadow-[0_0_20px_hsl(var(--primary)/0.4)] hover:shadow-[0_0_35px_hsl(var(--primary)/0.6)] hover:scale-110 transition-all duration-300 active:scale-90 border border-primary-foreground/15 overflow-hidden"
           title="Back to Top"
         >
-          <ArrowUp className="w-5 h-5 text-primary-foreground" />
+          {/* Pulse ring */}
+          <span className="absolute inset-0 rounded-full animate-ping opacity-20 bg-primary" style={{ animationDuration: '2s' }} />
+          {/* Shimmer sweep */}
+          <span className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-white/25 to-transparent" />
+          {/* Arrow icon with bounce */}
+          <ArrowUp className="w-5 h-5 text-primary-foreground relative z-10 group-hover:animate-bounce" style={{ animationDuration: '0.6s' }} />
         </button>
-      )}
+      </div>
 
       {/* Movie Request label with dotted arrow */}
       <div className="fixed bottom-28 right-16 md:bottom-44 md:right-24 z-50 flex flex-col items-end pointer-events-none select-none hidden md:flex">
