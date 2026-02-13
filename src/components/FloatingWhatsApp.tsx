@@ -1,8 +1,28 @@
-import { MessageCircle, Send } from "lucide-react";
+import { MessageCircle, Send, ArrowUp } from "lucide-react";
+import { useState, useEffect } from "react";
 
 const FloatingButtons = () => {
+  const [showTop, setShowTop] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setShowTop(window.scrollY > 400);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
     <>
+      {/* Back to Top - left side */}
+      {showTop && (
+        <button
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          className="fixed bottom-6 left-6 z-50 w-12 h-12 rounded-full bg-primary/90 flex items-center justify-center shadow-lg shadow-primary/30 hover:scale-110 hover:bg-primary transition-all duration-300 active:scale-95 backdrop-blur-sm border border-primary-foreground/10"
+          title="Back to Top"
+        >
+          <ArrowUp className="w-5 h-5 text-primary-foreground" />
+        </button>
+      )}
+
       {/* Movie Request label with dotted arrow */}
       <div className="fixed bottom-28 right-16 md:bottom-44 md:right-24 z-50 flex flex-col items-end pointer-events-none select-none hidden md:flex">
         <span className="text-base md:text-2xl font-bold text-accent tracking-wide">
@@ -31,9 +51,8 @@ const FloatingButtons = () => {
         </svg>
       </div>
 
-      {/* Floating buttons */}
+      {/* Floating buttons - right side */}
       <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3">
-        {/* Telegram */}
         <a
           href="https://t.me/paidiptvbd"
           target="_blank"
@@ -43,8 +62,6 @@ const FloatingButtons = () => {
         >
           <Send className="w-6 h-6 text-foreground" />
         </a>
-
-        {/* WhatsApp */}
         <a
           href="https://wa.me/8801767046095"
           target="_blank"
