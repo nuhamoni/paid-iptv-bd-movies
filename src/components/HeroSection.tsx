@@ -139,12 +139,6 @@ const HeroSection = ({ featuredMovie, movies = [] }: HeroSectionProps) => {
             </a>
           </div>
 
-          <div className="mt-3 flex items-center gap-2 text-sm text-muted-foreground">
-            <span className="text-accent font-medium">WhatsApp:</span>
-            <a href="https://wa.me/8801767046095" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-primary transition-colors">
-              01767046095
-            </a>
-          </div>
         </div>
 
         {/* Right: Movie Poster Grid */}
