@@ -22,6 +22,8 @@ export const genres = [
 const M3U_URLS = [
   "https://raw.githubusercontent.com/MRM3UK/Drama-Movies-Playlist---circleftp/refs/heads/main/MixFTP.m3u",
   "https://raw.githubusercontent.com/gipuges285-cmd/own-movies/refs/heads/main/paidiptvbd-movies.m3u",
+  "https://github.com/abusaeeidx/Movie-Playlist-Auto-update/raw/refs/heads/main/Bangla_Movies.m3u",
+  "https://github.com/abusaeeidx/Movie-Playlist-Auto-update/raw/refs/heads/main/Mix_Movies.m3u",
 ];
 
 function extractYearFromGroup(group: string): number {
